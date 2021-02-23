@@ -3,8 +3,6 @@
   height: 42px;
   background: #68de5a;
   border-radius: 20px;
-  padding-left: 35px;
-  margin: 12px;
   border: none;
 
   color: #ffffff;
@@ -12,10 +10,8 @@
   line-height: 19px;
   font-style: normal;
   font-weight: 600;
-
-  &__icon {
-    padding-left: 200px;
-  }
+  text-align: left;
+  padding: 0 30px;
 }
 
 .login-card {
@@ -53,7 +49,6 @@
     border-bottom: 1px solid #878686;
     padding: 12px 5px;
     outline: none;
-    height: 6vh;
     align-items: center;
     width: 345px;
 
@@ -67,10 +62,21 @@
 }
 
 .container-card {
-  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 70vh;
+
+  @media (max-width: 992px) {
+    max-width: 992px;
+    padding: 0 32px;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .container-login {
@@ -79,8 +85,7 @@
   width: 100vw;
 
   &__logo {
-    margin-top: 58px;
-    margin-left: 65px;
+    margin: 52px 0px 0px 63px;
   }
 }
 
