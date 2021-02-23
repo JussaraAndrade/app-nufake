@@ -35,4 +35,9 @@
     font-weight: 500;
     line-height: 27px;
   }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    margin: 0 auto;
+  }
 }

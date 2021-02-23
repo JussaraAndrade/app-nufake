@@ -29,10 +29,6 @@
   font-style: normal;
   text-align: left;
 
-  @media (max-width: 768px) {
-    text-align: center;
-  }
-
   &__title {
     margin-bottom: 36px;
     font-size: 42px;
@@ -44,6 +40,12 @@
     font-size: 23px;
     font-weight: 500;
     line-height: 27px;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
   }
 }
 
@@ -59,5 +61,15 @@
     line-height: 218px;
     letter-spacing: 0em;
     text-align: left;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+
+    &__text {
+      font-size: 144px;
+    }
   }
 }
