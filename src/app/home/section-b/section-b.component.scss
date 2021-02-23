@@ -1,0 +1,149 @@
+.section-b {
+  display: flex;
+  background: #eaeaea;
+  height: 100vh;
+  padding: 60px;
+  @media (max-width: 992px) {
+    padding: 0;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+}
+
+.left-side,
+.right-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+
+  @media (max-width: 768px) {
+    height: 50%;
+    width: 100%;
+  }
+}
+
+.digital-account {
+  background: #000;
+  width: 100%;
+  height: 100%;
+  color: #68de5a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__title {
+    margin-top: 80px;
+    width: 100%;
+
+    font-family: Roboto;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: center;
+    z-index: 1;
+  }
+
+  &__img {
+    height: auto;
+    width: 38vw;
+  }
+
+  &__text {
+    margin: 0 0 70px 107px;
+    white-space: normal;
+    width: 300px;
+    font-family: Roboto;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    z-index: 1;
+  }
+
+  @media (max-width: 992px) {
+    &__title {
+      margin: 80px auto;
+    }
+    &__text {
+      margin: 40px auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__title {
+      margin: 24px 0 0 0;
+    }
+    &__text {
+      margin: 0px auto 32px auto;
+    }
+  }
+}
+
+.credit-card {
+  background: #f8f8f8;
+  width: 100%;
+  height: 100%;
+  color: #1d1d1d;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__title {
+    margin: 80px 0 0 107px;
+
+    font-family: Roboto;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: left;
+    z-index: 1;
+  }
+
+  &__img {
+    height: auto;
+    width: 23vw;
+    margin-left: 107px;
+  }
+
+  &__text {
+    margin: 0 0 70px 107px;
+    white-space: normal;
+    width: 300px;
+    font-family: Roboto;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: left;
+    z-index: 1;
+  }
+
+  @media (max-width: 992px) {
+    &__title {
+      margin: 80px auto;
+      text-align: center;
+    }
+    &__text {
+      margin: 0px auto 32px auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__title {
+      margin: 24px;
+    }
+    &__text {
+      margin: 32px auto;
+    }
+  }
+}
