@@ -1,0 +1,105 @@
+.btn-login {
+  width: 345px;
+  height: 42px;
+  background: #68de5a;
+  border-radius: 20px;
+  padding-left: 35px;
+  margin: 12px;
+  border: none;
+
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 19px;
+  font-style: normal;
+  font-weight: 600;
+
+  &__icon {
+    padding-left: 200px;
+  }
+}
+
+.login-card {
+  background: #fbfbfb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 455px;
+  height: 422px;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    height: 57px;
+    margin: 18px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+  }
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__field {
+    margin: 20px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #878686;
+    padding: 12px 5px;
+    outline: none;
+    height: 6vh;
+    align-items: center;
+    width: 345px;
+
+    &::placeholder {
+      color: #878686;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+  }
+}
+
+.container-card {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-login {
+  background-color: #8c52e5;
+  height: 100vh;
+  width: 100vw;
+
+  &__logo {
+    margin-top: 58px;
+    margin-left: 65px;
+  }
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 10px 0;
+
+  &__text {
+    color: #8c52e5;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 30px;
+    font-style: normal;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #878686;
+  }
+}
