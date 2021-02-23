@@ -5,10 +5,11 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { SectionAComponent } from './section-a/section-a.component';
 import { SectionBComponent } from './section-b/section-b.component';
+import { SectionCComponent } from './section-c/section-c.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SectionAComponent, SectionBComponent],
+  declarations: [HomeComponent, SectionAComponent, SectionBComponent, SectionCComponent],
   imports: [
     CommonModule,
     HomeRoutingModule
