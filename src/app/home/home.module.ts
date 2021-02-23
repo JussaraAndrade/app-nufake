@@ -7,10 +7,11 @@ import { SectionAComponent } from './section-a/section-a.component';
 import { SectionBComponent } from './section-b/section-b.component';
 import { SectionCComponent } from './section-c/section-c.component';
 import { SectionDComponent } from './section-d/section-d.component';
+import { SectionEComponent } from './section-e/section-e.component';
 
 
 @NgModule({
-  declarations: [HomeComponent, SectionAComponent, SectionBComponent, SectionCComponent, SectionDComponent],
+  declarations: [HomeComponent, SectionAComponent, SectionBComponent, SectionCComponent, SectionDComponent, SectionEComponent],
   imports: [
     CommonModule,
     HomeRoutingModule
