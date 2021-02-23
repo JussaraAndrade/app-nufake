@@ -4,15 +4,22 @@
   background: url(/assets/img/happy.png);
   background-position: bottom;
   background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .header {
   display: flex;
-  height: 170px;
   width: 100%;
 
   &__img {
-    margin: 52px 63px;
+    margin: 52px 0px 0px 63px;
+  }
+
+  @media (max-width: 768px) {
+    &__img {
+      margin: 16px 16px;
+      height: 50px;
+    }
   }
 }
 
@@ -24,7 +31,18 @@
   max-width: calc(100vw - 270px);
   // max-width: 1165px;
   margin: 0 auto;
-  height: calc(100vh - 170px);
+  height: 100%;
+
+  @media (max-width: 992px) {
+    max-width: 992px;
+    padding: 0 32px;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .intro-card {
@@ -61,6 +79,19 @@
     letter-spacing: 0em;
     text-align: left;
     color: #8c52e5;
+  }
+
+  @media (max-width: 768px) {
+    // background: red;
+    margin: 8px auto;
+    &__text {
+      font-size: 24px;
+      text-align: center;
+    }
+    &__button {
+      margin: 8px auto;
+      text-align: center;
+    }
   }
 }
 
