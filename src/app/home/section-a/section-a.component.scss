@@ -1,4 +1,4 @@
-@import "/src/shared/variables";
+@import "/src/app/shared/variables";
 
 .section-a {
   display: flex;
@@ -67,17 +67,21 @@
   height: fit-content;
   margin-left: 45px;
 
+  font-family: Roboto;
+  font-style: normal;
+
   &__text {
     color: $white;
-    font-family: Roboto;
     font-size: 29px;
-    font-style: normal;
     font-weight: 400;
     line-height: 34px;
     text-align: left;
   }
 
   &__button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 25px;
     width: 261px;
     height: 42px;
@@ -86,13 +90,9 @@
     padding: 0 21px;
     cursor: pointer;
 
-    font-family: Roboto;
     font-size: 17px;
-    font-style: normal;
     font-weight: 500;
     line-height: 20px;
-    letter-spacing: 0em;
-    text-align: left;
     color: $purple;
   }
 
@@ -152,6 +152,9 @@
   }
 
   &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     height: 48px;
     margin: 15px 0;
     background: $darkGray;
@@ -160,10 +163,8 @@
 
     font-family: Roboto;
     font-size: 12px;
-    font-style: normal;
     font-weight: 500;
     line-height: 14px;
-    letter-spacing: 0em;
     text-align: left;
     color: $darkGrayText;
   }

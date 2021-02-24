@@ -9,7 +9,9 @@
       >
       <br />
       <span class="intro-card__text">Ja tem conta?</span>
-      <button class="intro-card__button">Acessar</button>
+      <button class="intro-card__button">
+        Acessar <app-arrow></app-arrow>
+      </button>
     </div>
     <div class="register-card">
       <h2 class="register-card__title">
@@ -41,7 +43,9 @@
         placeholder="Confirme sua senha"
       />
 
-      <button class="register-card__btn">Continuar</button>
+      <button class="register-card__btn">
+        Continuar<app-arrow [fill]="arrowColor"></app-arrow>
+      </button>
     </div>
   </div>
 </section>

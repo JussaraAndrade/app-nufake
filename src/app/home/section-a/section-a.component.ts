@@ -8,5 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class SectionAComponent implements OnInit {
   constructor() {}
 
+  arrowColor = '#9b9b9b';
+
   ngOnInit(): void {}
 }

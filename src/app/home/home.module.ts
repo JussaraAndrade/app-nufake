@@ -8,13 +8,17 @@ import { SectionBComponent } from './section-b/section-b.component';
 import { SectionCComponent } from './section-c/section-c.component';
 import { SectionDComponent } from './section-d/section-d.component';
 import { SectionEComponent } from './section-e/section-e.component';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
-  declarations: [HomeComponent, SectionAComponent, SectionBComponent, SectionCComponent, SectionDComponent, SectionEComponent],
-  imports: [
-    CommonModule,
-    HomeRoutingModule
-  ]
+  declarations: [
+    HomeComponent,
+    SectionAComponent,
+    SectionBComponent,
+    SectionCComponent,
+    SectionDComponent,
+    SectionEComponent,
+  ],
+  imports: [CommonModule, HomeRoutingModule, SharedModule],
 })
-export class HomeModule { }
+export class HomeModule {}
