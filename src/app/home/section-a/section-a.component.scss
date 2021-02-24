@@ -1,3 +1,5 @@
+@import "/src/shared/variables";
+
 .section-a {
   display: flex;
   flex-direction: column;
@@ -66,7 +68,7 @@
   margin-left: 45px;
 
   &__text {
-    color: #fff;
+    color: $white;
     font-family: Roboto;
     font-size: 29px;
     font-style: normal;
@@ -79,7 +81,7 @@
     margin-top: 25px;
     width: 261px;
     height: 42px;
-    background: #ffffff;
+    background: $white;
     border-radius: 20px;
     padding: 0 21px;
     cursor: pointer;
@@ -91,7 +93,7 @@
     line-height: 20px;
     letter-spacing: 0em;
     text-align: left;
-    color: #8c52e5;
+    color: $purple;
   }
 
   @media (max-width: 768px) {
@@ -115,7 +117,7 @@
   height: 462px;
   padding: 25px 36px;
 
-  background: #fbfbfb;
+  background: $card;
   border-radius: 8px;
 
   &__title {
@@ -129,11 +131,11 @@
     display: flex;
     align-items: center;
 
-    color: #1d1d1d;
+    color: $softBlack;
   }
 
   &__field {
-    border-bottom: 1px solid #878686;
+    border-bottom: 1px solid $border;
     height: 40px;
     margin-bottom: 24px;
 
@@ -152,7 +154,7 @@
   &__btn {
     height: 48px;
     margin: 15px 0;
-    background: #d8d8d8;
+    background: $darkGray;
     border-radius: 20px;
     padding: 0 30px;
 
@@ -163,6 +165,6 @@
     line-height: 14px;
     letter-spacing: 0em;
     text-align: left;
-    color: #9b9b9b;
+    color: $darkGrayText;
   }
 }

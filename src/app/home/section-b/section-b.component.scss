@@ -1,6 +1,8 @@
+@import "/src/shared/variables";
+
 .section-b {
   display: flex;
-  background: #eaeaea;
+  background: $gray;
   height: 100vh;
   padding: 60px;
   @media (max-width: 992px) {
@@ -27,10 +29,10 @@
 }
 
 .digital-account {
-  background: #000;
+  background: $black;
   width: 100%;
   height: 100%;
-  color: #68de5a;
+  color: $green;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -102,21 +104,21 @@
 }
 
 .credit-card {
-  background: #f8f8f8;
+  background: $softGray;
   width: 100%;
   height: 100%;
-  color: #1d1d1d;
+  color: $softBlack;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
 
+  font-family: Roboto;
+  font-style: normal;
+
   &__title {
     margin: 80px 0 0 107px;
-
-    font-family: Roboto;
     font-size: 34px;
-    font-style: normal;
     font-weight: 500;
     line-height: 40px;
     text-align: left;
@@ -140,12 +142,9 @@
     margin: 0 0 60px 107px;
     white-space: normal;
     width: 300px;
-    font-family: Roboto;
     font-size: 21px;
-    font-style: normal;
     font-weight: 400;
     line-height: 25px;
-    letter-spacing: 0em;
     text-align: left;
     z-index: 1;
   }
