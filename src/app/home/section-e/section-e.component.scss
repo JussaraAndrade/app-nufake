@@ -1,8 +1,6 @@
 .section-e {
   height: 100vh;
   background: #eaeaea;
-  padding: 0 170px;
-  width: 100vw;
 }
 
 .container {
@@ -15,9 +13,9 @@
 
   @media (max-width: 768px) {
     flex-direction: column-reverse;
-    padding: 32px 16px;
+    // padding: 32px 16px;
     margin: 0;
-    min-width: 100%;
+    // min-width: 100%;
   }
 }
 
@@ -27,6 +25,7 @@
   text-align: left;
   width: 444px;
   margin-right: 32px;
+  margin-left: 32px;
 
   &__title {
     font-size: 42px;
@@ -41,13 +40,9 @@
     line-height: 32px;
   }
 
-  &__img {
-    margin-right: 40px;
-    height: 67vh;
-    width: auto;
-  }
-
   @media (max-width: 768px) {
+    width: auto;
+    margin-bottom: 16px;
     // padding: 16px 0;
     &__title {
       font-size: 24px;
@@ -67,5 +62,23 @@
       height: 44vh;
       width: auto;
     }
+  }
+}
+
+.img-box {
+  height: 100%;
+  width: 50%;
+
+  background: url(/assets/img/section-e-phone.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+
+  &__img {
+    // margin-right: 40px;
+  }
+
+  @media (max-width: 768px) {
+    // width: 100px;
   }
 }

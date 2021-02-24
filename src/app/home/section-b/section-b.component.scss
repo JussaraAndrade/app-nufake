@@ -34,36 +34,38 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
+
+  font-family: Roboto;
+  font-style: normal;
 
   &__title {
     margin-top: 80px;
     width: 100%;
 
-    font-family: Roboto;
     font-size: 34px;
-    font-style: normal;
     font-weight: 500;
     line-height: 40px;
-    letter-spacing: 0em;
     text-align: center;
-    z-index: 1;
   }
 
   &__img {
-    height: auto;
-    width: 38vw;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: url(/assets/img/app-bg1.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-size: 50%;
   }
 
   &__text {
-    margin: 0 0 70px 107px;
+    margin: 0 0 60px 107px;
     white-space: normal;
     width: 300px;
-    font-family: Roboto;
     font-size: 21px;
-    font-style: normal;
     font-weight: 400;
     line-height: 25px;
-    letter-spacing: 0em;
     text-align: left;
     z-index: 1;
   }
@@ -84,6 +86,18 @@
     &__text {
       margin: 0px auto 32px auto;
     }
+    &__img {
+      background-size: 45%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__title {
+      font-size: 24px;
+    }
+    &__text {
+      font-size: 18px;
+    }
   }
 }
 
@@ -95,6 +109,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 
   &__title {
     margin: 80px 0 0 107px;
@@ -109,13 +124,20 @@
   }
 
   &__img {
-    height: auto;
-    width: 23vw;
-    margin-left: 107px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    // background-size: contain;
+    background: url(/assets/img/app-bg2.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position-x: center;
+    background-size: 33%;
   }
 
   &__text {
-    margin: 0 0 70px 107px;
+    margin: 0 0 60px 107px;
     white-space: normal;
     width: 300px;
     font-family: Roboto;
@@ -144,6 +166,18 @@
     }
     &__text {
       margin: 32px auto;
+    }
+    &__img {
+      background-size: 33%;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &__title {
+      font-size: 24px;
+    }
+    &__text {
+      font-size: 18px;
     }
   }
 }
