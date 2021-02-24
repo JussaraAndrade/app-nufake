@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { RegisterService } from 'src/app/shared/services/register.service';
 import { MustMatch } from 'src/app/shared/validators/must-match.validator';
 
@@ -17,7 +18,8 @@ export class SectionAComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private registerService: RegisterService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -62,11 +64,17 @@ export class SectionAComponent implements OnInit {
   createUser() {
     this.registerService.createAccount(this.registerForm.value).subscribe(
       (response) => this.onSuccess(),
-      (error) => console.log('deu ruim: ', error)
+      (error) => this.onError(error)
     );
   }
 
   onSuccess() {
+    this.toastr.success('Faça o seu login', 'Usuário Criado!');
     this.router.navigate(['login']);
+  }
+
+  onError(error) {
+    this.toastr.error(error.error.error, 'Erro no cadastro!');
+    console.log(error);
   }
 }
