@@ -1,0 +1,32 @@
+<div class="container-login">
+  <img class="container-login__logo" [src]="LOGO_IMAGE_URL" />
+
+  <div class="container-card">
+    <div class="login-card">
+      <p class="login-card__title">Faça seu login</p>
+
+      <form class="login-card__form">
+        <input
+          type="text"
+          class="login-card__field"
+          placeholder="Digite o seu usuário"
+        />
+        <input
+          type="text"
+          class="login-card__field"
+          placeholder="Digite a sua senha"
+        />
+
+          <button type="submit" class="btn-login">
+            Continuar <img class="btn-login__icon" [src]="VECTOR_ICON_URL" />
+          </button>
+
+
+        <div class="link">
+          <a href="#" class="link__text">Esqueci minha senha ></a>
+          <a href="#" class="link__text">Ainda não sou cliente ></a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
