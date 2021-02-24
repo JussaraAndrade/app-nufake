@@ -149,6 +149,14 @@
       letter-spacing: 0em;
       text-align: left;
     }
+
+    &--invalid {
+      border-color: red;
+
+      &::placeholder {
+        color: red;
+      }
+    }
   }
 
   &__btn {
@@ -160,6 +168,7 @@
     background: $darkGray;
     border-radius: 20px;
     padding: 0 30px;
+    cursor: pointer;
 
     font-family: Roboto;
     font-size: 12px;
@@ -167,5 +176,19 @@
     line-height: 14px;
     text-align: left;
     color: $darkGrayText;
+
+    transition: color, background 200ms;
+
+    &:hover {
+      background: darken($darkGray, 5%);
+    }
+
+    &--valid {
+      background: $green;
+      color: $white;
+      &:hover {
+        background: darken($green, 10%);
+      }
+    }
   }
 }

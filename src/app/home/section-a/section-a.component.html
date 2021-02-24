@@ -13,7 +13,8 @@
         Acessar <app-arrow></app-arrow>
       </button>
     </div>
-    <div class="register-card">
+
+    <form class="register-card" [formGroup]="registerForm">
       <h2 class="register-card__title">
         Peça sua conta e cartão de crédito do Gama Bank
       </h2>
@@ -21,31 +22,47 @@
         type="text"
         class="register-card__field"
         placeholder="Digite seu CPF"
+        formControlName="cpf"
+        [class.register-card__field--invalid]="showError('cpf')"
       />
       <input
         type="text"
         class="register-card__field"
         placeholder="Escolha um nome de usuário"
+        formControlName="login"
+        [class.register-card__field--invalid]="showError('login')"
       />
       <input
         type="text"
         class="register-card__field"
-        placeholder="Nome complet"
+        placeholder="Nome completo"
+        formControlName="nome"
+        [class.register-card__field--invalid]="showError('nome')"
       />
       <input
-        type="text"
+        type="password"
         class="register-card__field"
         placeholder="Digite sua senha"
+        formControlName="senha"
+        [class.register-card__field--invalid]="showError('senha')"
       />
       <input
-        type="text"
+        type="password"
         class="register-card__field"
         placeholder="Confirme sua senha"
+        formControlName="confirmarSenha"
+        [class.register-card__field--invalid]="showError('confirmarSenha')"
       />
 
-      <button class="register-card__btn">
-        Continuar<app-arrow [fill]="arrowColor"></app-arrow>
+      <button
+        class="register-card__btn"
+        (click)="onSubmit()"
+        [class.register-card__btn--valid]="registerForm.valid"
+      >
+        Continuar<app-arrow
+          [fill]="registerForm.valid ? arrowColor : arrowColorDisabled"
+        ></app-arrow>
       </button>
-    </div>
+    </form>
   </div>
 </section>
