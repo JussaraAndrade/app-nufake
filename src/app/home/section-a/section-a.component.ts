@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RegisterService } from 'src/app/shared/services/register.service';
 import { MustMatch } from 'src/app/shared/validators/must-match.validator';
 
 @Component({
@@ -12,7 +14,11 @@ export class SectionAComponent implements OnInit {
   arrowColorDisabled = '#9b9b9b';
   registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private registerService: RegisterService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group(
@@ -50,6 +56,17 @@ export class SectionAComponent implements OnInit {
       this.validateAllFormFields();
       return;
     }
-    console.log(this.registerForm);
+    this.createUser();
+  }
+
+  createUser() {
+    this.registerService.createAccount(this.registerForm.value).subscribe(
+      (response) => this.onSuccess(),
+      (error) => console.log('deu ruim: ', error)
+    );
+  }
+
+  onSuccess() {
+    this.router.navigate(['login']);
   }
 }

@@ -94,6 +94,12 @@
     font-weight: 500;
     line-height: 20px;
     color: $purple;
+
+    transition: color, background 200ms;
+
+    &:hover {
+      background: darken($white, 10%);
+    }
   }
 
   @media (max-width: 768px) {
