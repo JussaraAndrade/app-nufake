@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recovery',
@@ -9,7 +10,14 @@ export class RecoveryComponent implements OnInit {
   LOGO_IMAGE_URL = './assets/gama-academy-logo-horizontal-verde-branco1 1.png';
   VECTOR_ICON_URL = './assets/Vector.png';
 
-  constructor() {}
+  temporaryPassword: string;
 
-  ngOnInit(): void {}
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const paramPassword = this.route.snapshot.paramMap.get('temporaryPassword');
+    if (paramPassword) {
+      this.temporaryPassword = paramPassword;
+    }
+  }
 }

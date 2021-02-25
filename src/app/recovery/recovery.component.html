@@ -2,7 +2,7 @@
   <img class="container-login__logo" [src]="LOGO_IMAGE_URL" />
 
   <div class="container-card">
-    <div class="recovery-card">
+    <div class="recovery-card" *ngIf="!temporaryPassword">
       <p class="recovery-card__title">Esqueci minha senha</p>
       <p class="recovery-card__subtitle">
         Confirme seu email e nome de usuário
@@ -14,6 +14,35 @@
           type="text"
           class="recovery-card__field"
           placeholder="Nome de usuario"
+        />
+
+        <button type="submit" class="btn-login">
+          Continuar <img class="btn-login__icon" [src]="VECTOR_ICON_URL" />
+        </button>
+      </form>
+    </div>
+
+    <div class="recovery-card" *ngIf="temporaryPassword">
+      <p class="recovery-card__title">Alterar senha</p>
+      <p class="recovery-card__subtitle">
+        Preencha os campos para alterar sua senha
+      </p>
+
+      <form class="recovery-card__form">
+        <input
+          type="text"
+          class="recovery-card__field"
+          placeholder="Nome de usuário"
+        />
+        <input
+          type="password"
+          class="recovery-card__field"
+          placeholder="Digite sua nova senha"
+        />
+        <input
+          type="password"
+          class="recovery-card__field"
+          placeholder="Confirme sua nova senha"
         />
 
         <button type="submit" class="btn-login">

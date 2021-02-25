@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'recovery',
-    component: RecoveryComponent,
+    loadChildren: () =>
+      import('./recovery/recovery.module').then((m) => m.RecoveryModule),
   },
   {
     path: '**',

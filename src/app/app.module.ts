@@ -12,7 +12,7 @@ import { PageErroComponent } from './error/error.component';
 import { RecoveryComponent } from './recovery/recovery.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, PageErroComponent, RecoveryComponent],
+  declarations: [AppComponent, LoginComponent, PageErroComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
