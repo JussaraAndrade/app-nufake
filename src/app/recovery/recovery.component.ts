@@ -5,7 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { LoginService } from '../shared/services/login.service';
 import { MustMatch } from '../shared/validators/must-match.validator';
 
 @Component({
@@ -22,8 +24,11 @@ export class RecoveryComponent implements OnInit {
   temporaryPassword: string;
 
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private loginService: LoginService,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -74,7 +79,20 @@ export class RecoveryComponent implements OnInit {
   }
 
   requestNewTemporaryPassword() {
-    console.log('pegar uma senha temporaria na api');
+    this.loginService
+      .requestNewPassword(this.forgotPasswordForm.value)
+      .subscribe(
+        (response) => this.onNewTemporaryPasswordSuccess(response),
+        (error) => this.onNewTemporaryPasswordError(error)
+      );
+  }
+
+  onNewTemporaryPasswordSuccess(response) {
+    this.router.navigate([`/recovery/${response}`]);
+  }
+
+  onNewTemporaryPasswordError(error) {
+    this.toastr.error(error.error.error, 'Erro!');
   }
 
   onChangePasswordSubmit() {
@@ -86,6 +104,22 @@ export class RecoveryComponent implements OnInit {
   }
 
   changePassword() {
-    console.log('trocar a senha com a api');
+    console.log(this.temporaryPassword);
+
+    this.loginService
+      .changePassword(this.temporaryPassword, this.changePasswordForm.value)
+      .subscribe(
+        (response) => this.onChangePasswordSuccess(response),
+        (error) => this.onChangePasswordError(error)
+      );
+  }
+
+  onChangePasswordSuccess(response) {
+    this.toastr.success('Senha alterada :D', 'Sucesso!');
+    this.router.navigate(['/login']);
+  }
+
+  onChangePasswordError(error) {
+    this.toastr.error(error?.error.error, 'Erro!');
   }
 }
