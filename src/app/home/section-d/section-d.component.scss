@@ -1,6 +1,9 @@
+@import "/src/app/shared/variables";
+
 .section-d {
   height: 100vh;
-  background: #68de5a;
+
+  background: $green;
 }
 
 .background {
@@ -19,7 +22,7 @@
 
   font-family: Roboto;
   text-align: left;
-  color: #fff;
+  color: $white;
 
   &__title {
     margin-top: 8px;
