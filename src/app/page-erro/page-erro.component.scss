@@ -64,23 +64,6 @@
       flex-direction: column;
     }
   
-    &__field {
-      margin: 20px 0;
-      background: transparent;
-      border: none;
-      border-bottom: 1px solid #878686;
-      padding: 12px 5px;
-      outline: none;
-      align-items: center;
-      width: 345px;
-  
-      &::placeholder {
-        color: #878686;
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 16px;
-      }
-    }
   }
   .container-card {
     display: flex;
@@ -122,6 +105,9 @@
     justify-content: center;
     align-items: center;
     padding: 0 30px;
+    &:hover {
+        background: darken(green, 10%);;
+    }
   }
   .icon  {
     margin-left: 200px;
