@@ -68,6 +68,15 @@
       font-weight: 600;
       line-height: 16px;
     }
+
+    &--invalid {
+      border-color: red;
+      color: red;
+
+      &::placeholder {
+        color: red;
+      }
+    }
   }
 }
 
