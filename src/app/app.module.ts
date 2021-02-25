@@ -8,7 +8,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { PageErroComponent } from './page-erro/page-erro.component';
+import { PageErroComponent } from './error/error.component';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, PageErroComponent],

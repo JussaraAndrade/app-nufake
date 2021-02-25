@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PageErroComponent } from './page-erro/page-erro.component';
+import { PageErroComponent } from './error/error.component';
 const routes: Routes = [
   {
     path: '',
