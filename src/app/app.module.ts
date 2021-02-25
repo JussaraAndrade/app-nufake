@@ -9,9 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { PageErroComponent } from './error/error.component';
+import { RecoveryComponent } from './recovery/recovery.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, PageErroComponent],
+  declarations: [AppComponent, LoginComponent, PageErroComponent, RecoveryComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
