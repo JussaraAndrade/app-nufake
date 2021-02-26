@@ -26,6 +26,9 @@
         formControlName="cpf"
         [class.register-card__field--invalid]="showError('cpf')"
       />
+      <div *ngIf="showError('cpf')" class="register-card__invalid-feedback">
+        CPF inválido.
+      </div>
       <input
         type="text"
         class="register-card__field"
@@ -33,6 +36,9 @@
         formControlName="login"
         [class.register-card__field--invalid]="showError('login')"
       />
+      <div *ngIf="showError('login')" class="register-card__invalid-feedback">
+        Nome de usuário inválido.
+      </div>
       <input
         type="text"
         class="register-card__field"
@@ -40,6 +46,9 @@
         formControlName="nome"
         [class.register-card__field--invalid]="showError('nome')"
       />
+      <div *ngIf="showError('nome')" class="register-card__invalid-feedback">
+        Nome é obrigatório.
+      </div>
       <input
         type="password"
         class="register-card__field"
@@ -47,6 +56,9 @@
         formControlName="senha"
         [class.register-card__field--invalid]="showError('senha')"
       />
+      <div *ngIf="showError('senha')" class="register-card__invalid-feedback">
+        Senha inválida.
+      </div>
       <input
         type="password"
         class="register-card__field"
@@ -54,6 +66,12 @@
         formControlName="confirmarSenha"
         [class.register-card__field--invalid]="showError('confirmarSenha')"
       />
+      <div
+        *ngIf="showError('confirmarSenha')"
+        class="register-card__invalid-feedback"
+      >
+        As senhas devem coincidir.
+      </div>
 
       <button
         class="register-card__btn"
