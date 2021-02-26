@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { RegisterService } from 'src/app/shared/services/register.service';
+import { CPFValidator } from 'src/app/shared/validators/cpf.validator';
 import { MustMatch } from 'src/app/shared/validators/must-match.validator';
 
 @Component({
@@ -28,10 +29,12 @@ export class SectionAComponent implements OnInit {
         cpf: ['', [Validators.required, Validators.minLength(11)]],
         login: ['', Validators.required],
         nome: ['', Validators.required],
-        senha: ['', Validators.required],
+        senha: ['', [Validators.required, Validators.minLength(8)]],
         confirmarSenha: ['', Validators.required],
       },
-      { validator: MustMatch('senha', 'confirmarSenha') }
+      {
+        validators: [CPFValidator('cpf'), MustMatch('senha', 'confirmarSenha')],
+      }
     );
   }
 
