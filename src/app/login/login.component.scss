@@ -1,21 +1,26 @@
+@import "/src/app/shared/variables";
+
 .btn-login {
   width: 345px;
   height: 42px;
-  background: #68de5a;
+  background: $green;
   border-radius: 20px;
   border: none;
 
-  color: #ffffff;
+  color: $white;
   font-size: 16px;
   line-height: 19px;
-  font-style: normal;
   font-weight: 600;
   text-align: left;
   padding: 0 30px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .login-card {
-  background: #fbfbfb;
+  background: $card;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -24,16 +29,15 @@
   height: 422px;
 
   &__title {
+    height: 57px;
+    margin: 18px;
     display: flex;
     align-items: center;
     text-align: center;
-    height: 57px;
-    margin: 18px;
 
     font-style: normal;
     font-weight: bold;
     font-size: 20px;
-    line-height: 23px;
   }
   &__form {
     display: flex;
@@ -46,17 +50,21 @@
     margin: 20px 0;
     background: transparent;
     border: none;
-    border-bottom: 1px solid #878686;
+    border-bottom: 1px solid $border;
     padding: 12px 5px;
     outline: none;
     align-items: center;
     width: 345px;
 
     &::placeholder {
-      color: #878686;
+      color: $border;
       font-size: 14px;
       font-weight: 600;
       line-height: 16px;
+    }
+    &--invalid {
+      border-color: $red;
+      color: $red;
     }
   }
 }
