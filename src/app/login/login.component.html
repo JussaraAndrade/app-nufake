@@ -11,30 +11,26 @@
           class="login-card__field"
           placeholder="Digite o seu usuário"
           formControlName="usuario"
-          [class.is-invalid]="showError('usuario')"
+          [class.login-card__field--invalid]="showError('usuario')"
           #userInput
         />
-
-        <div *ngIf="showError('usuario')" class="invalid-feedback">
-          Usuário inválido.
-        </div>
 
         <input
           type="password"
           class="login-card__field"
           placeholder="Digite a sua senha"
           formControlName="senha"
-          [class.is-invalid]="showError('senha')"
+          [class.login-card__field--invalid]="showError('senha')"
           #passwordInput
         />
 
-        <div *ngIf="showError('senha')" class="invalid-feedback">
-          Senha inválida.
-        </div>
-
-          <button class="btn-login" (click)="onSubmit()">
-            Continuar <img class="btn-login__icon" [src]="VECTOR_ICON_URL" />
+          <button
+          class="btn-login"
+          (click)="onSubmit()">
+            Continuar
+            <img class="btn-login__icon" [src]="VECTOR_ICON_URL" />
           </button>
+
 
           <p *ngIf="errorLogin">
             Usuário ou senha inválidos.

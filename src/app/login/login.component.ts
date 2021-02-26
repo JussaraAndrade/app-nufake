@@ -35,6 +35,15 @@ export class LoginComponent {
     private toastr: ToastrService,
   ) { }
 
+  ngOnInit(){}
+
+  initialForm(){
+    this.loginForm = this.formBuilder.group({
+      usuario: ['', Validators.required],
+      senha: ['', Validators.required],
+    })
+  }
+
   showError(control: string): boolean{
     if (!this.loginForm.get(control)) {
       return false;
