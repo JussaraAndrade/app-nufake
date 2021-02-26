@@ -5,28 +5,47 @@
     <div class="login-card">
       <p class="login-card__title">Faça seu login</p>
 
-      <form class="login-card__form">
+      <form class="login-card__form" [formGroup]="loginForm">
         <input
           type="text"
           class="login-card__field"
           placeholder="Digite o seu usuário"
-        />
-        <input
-          type="text"
-          class="login-card__field"
-          placeholder="Digite a sua senha"
+          formControlName="usuario"
+          [class.is-invalid]="showError('usuario')"
+          #userInput
         />
 
-          <button type="submit" class="btn-login">
+        <div *ngIf="showError('usuario')" class="invalid-feedback">
+          Usuário inválido.
+        </div>
+
+        <input
+          type="password"
+          class="login-card__field"
+          placeholder="Digite a sua senha"
+          formControlName="senha"
+          [class.is-invalid]="showError('senha')"
+          #passwordInput
+        />
+
+        <div *ngIf="showError('senha')" class="invalid-feedback">
+          Senha inválida.
+        </div>
+
+          <button class="btn-login" (click)="onSubmit()">
             Continuar <img class="btn-login__icon" [src]="VECTOR_ICON_URL" />
           </button>
 
+          <p *ngIf="errorLogin">
+            Usuário ou senha inválidos.
+          </p>
 
-        <div class="link">
-          <a href="#" class="link__text">Esqueci minha senha ></a>
-          <a href="#" class="link__text">Ainda não sou cliente ></a>
-        </div>
       </form>
+
+      <div class="link">
+        <a href="#" class="link__text">Esqueci minha senha ></a>
+        <a href="#" class="link__text">Ainda não sou cliente ></a>
+      </div>
     </div>
   </div>
 </div>
