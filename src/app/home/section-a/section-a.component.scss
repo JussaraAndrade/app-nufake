@@ -173,7 +173,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 48px;
+    min-height: 48px;
     margin: 40px 0;
     background: $darkGray;
     border-radius: 20px;
