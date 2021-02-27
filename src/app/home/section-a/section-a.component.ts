@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { RegisterService } from 'src/app/shared/services/register.service';
+import { RegisterService } from 'src/app/shared/services/register/register.service';
 import { CPFValidator } from 'src/app/shared/validators/cpf.validator';
 import { MustMatch } from 'src/app/shared/validators/must-match.validator';
 
