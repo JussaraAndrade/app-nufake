@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { LoginService } from '../shared/services/login.service';
+import { LoginService } from '../shared/services/login/login.service';
 import { MustMatch } from '../shared/validators/must-match.validator';
 
 @Component({
