@@ -3,17 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { PageErroComponent } from './error/error.component';
 
-
 const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-
     path: 'login',
-    loadChildren: () => import('./login/login.module').then((m) => m.LoginModule),
-
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'recovery',
@@ -21,15 +19,19 @@ const routes: Routes = [
       import('./recovery/recovery.module').then((m) => m.RecoveryModule),
   },
   {
-    path:'error',
-    component:  PageErroComponent,
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+  },
+  {
+    path: 'error',
+    component: PageErroComponent,
     pathMatch: 'full',
   },
   {
     path: '**',
     component: PageErroComponent,
   },
-
 ];
 
 @NgModule({

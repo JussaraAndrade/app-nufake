@@ -9,9 +9,10 @@ import { AppComponent } from './app.component';
 import { PageErroComponent } from './error/error.component';
 import { RecoveryComponent } from './recovery/recovery.component';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, PageErroComponent],
+  declarations: [AppComponent, PageErroComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
