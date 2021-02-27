@@ -86,7 +86,7 @@ export class LoginComponent {
   }
 
   onErrorLogin(){
-    this.toastr.error('Erro efetuar login!');
+    this.toastr.error('Tente novamente!' , 'Erro ao efetuar o login!');
     this.errorLogin = true;
   }
 }
