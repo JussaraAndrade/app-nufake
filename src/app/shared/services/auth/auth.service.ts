@@ -4,34 +4,31 @@ import { Router } from '@angular/router';
 import { User } from '../../interfaces/user.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-
   private usuario: User | undefined;
   private token: string | undefined;
 
-  constructor(
-    private router: Router,
-  ){}
+  constructor(private router: Router) {}
 
-  setUser(user: User){
+  setUser(user: User) {
     this.usuario = user;
     localStorage.setItem('usuario', JSON.stringify(user));
   }
 
-  setToken(token: string){
+  setToken(token: string) {
     this.token = token;
     localStorage.setItem('token', token);
   }
 
-  getUser(){
-    if(this.usuario){
+  getUser() {
+    if (this.usuario) {
       return this.usuario;
     }
 
     const savedUsers = localStorage.getItem('usuario');
-    if(savedUsers){
+    if (savedUsers) {
       this.usuario = JSON.parse(savedUsers);
       return this.usuario;
     }
@@ -39,18 +36,22 @@ export class AuthService {
     return undefined;
   }
 
-  getToken(){
-    if(this.token){
+  getToken() {
+    if (this.token) {
       return this.token;
     }
 
     const savedToken = localStorage.getItem('token');
-    if(savedToken){
+    if (savedToken) {
       this.token = savedToken;
       return this.token;
     }
 
     return undefined;
+  }
+
+  isAuthenticated(): boolean {
+    return !!(this.getUser() && this.getToken());
   }
 
   logout() {
@@ -60,11 +61,10 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  logged(){
-    if(this.getUser() && this.getToken()){
+  logged() {
+    if (this.getUser() && this.getToken()) {
       return true;
     }
     return false;
   }
-
 }

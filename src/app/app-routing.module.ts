@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PageErroComponent } from './error/error.component';
+import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
+    canActivate: [IsAuthenticatedGuard],
   },
   {
     path: 'error',
