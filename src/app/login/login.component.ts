@@ -81,8 +81,8 @@ export class LoginComponent {
   }
 
   onSuccessLogin() {
-    this.toastr.success('Faça o seu login', 'Login efetuado com sucesso!');
-    this.router.navigate(['home']);
+    this.toastr.success('Login efetuado com sucesso!');
+    this.router.navigate(['dashboard']);
   }
 
   onErrorLogin(){
