@@ -9,12 +9,6 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
-
-  {
-    path:'error',
-    component:  PageErroComponent,
-    pathMatch: 'full',
-  },
   {
 
     path: 'login',
@@ -25,6 +19,11 @@ const routes: Routes = [
     path: 'recovery',
     loadChildren: () =>
       import('./recovery/recovery.module').then((m) => m.RecoveryModule),
+  },
+  {
+    path:'error',
+    component:  PageErroComponent,
+    pathMatch: 'full',
   },
   {
     path: '**',
