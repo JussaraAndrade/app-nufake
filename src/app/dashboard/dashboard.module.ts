@@ -1,17 +1,16 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
-import { ContentComponent } from './content/content.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardComponent } from './dashboard.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
-  declarations: [ContentComponent, NavbarComponent],
+  declarations: [DashboardComponent, NavbarComponent],
   imports: [
     CommonModule,
-    DashboardRoutingModule,
-  ],
-  exports: [NavbarComponent]
+    DashboardRoutingModule
+  ]
 })
 export class DashboardModule { }

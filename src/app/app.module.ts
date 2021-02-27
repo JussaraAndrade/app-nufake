@@ -12,7 +12,7 @@ import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, PageErroComponent, DashboardComponent],
+  declarations: [AppComponent, PageErroComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
