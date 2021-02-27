@@ -76,11 +76,14 @@
       <button
         class="register-card__btn"
         (click)="onSubmit()"
-        [class.register-card__btn--valid]="registerForm.valid"
+        [class.register-card__btn--valid]="registerForm.valid && !loading"
       >
-        Continuar<app-arrow
+        Continuar
+        <app-arrow
+          *ngIf="!loading"
           [fill]="registerForm.valid ? arrowColor : arrowColorDisabled"
-        ></app-arrow>
+        ></app-arrow
+        ><app-spinner *ngIf="loading"></app-spinner>
       </button>
     </form>
   </div>

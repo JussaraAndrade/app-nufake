@@ -15,6 +15,7 @@ export class SectionAComponent implements OnInit {
   arrowColor = '#fff';
   arrowColorDisabled = '#9b9b9b';
   registerForm: FormGroup;
+  loading = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -65,6 +66,7 @@ export class SectionAComponent implements OnInit {
   }
 
   createUser() {
+    this.loading = true;
     this.registerService.createAccount(this.registerForm.value).subscribe(
       (response) => this.onSuccess(),
       (error) => this.onError(error)
@@ -72,11 +74,13 @@ export class SectionAComponent implements OnInit {
   }
 
   onSuccess() {
+    this.loading = false;
     this.toastr.success('Faça o seu login', 'Usuário Criado!');
     this.router.navigate(['login']);
   }
 
   onError(error) {
+    this.loading = false;
     this.toastr.error(error.error.error, 'Erro no cadastro!');
     console.log(error);
   }
