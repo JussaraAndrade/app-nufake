@@ -50,7 +50,6 @@ export class TransferComponent implements OnInit {
     this.transactionService
       .getPlanosConta(this.user.login)
       .subscribe((response) => (this.plans = response));
-    console.log(this.plans);
   }
 
   showError(control: string): boolean {
