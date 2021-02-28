@@ -1,3 +1,46 @@
-<div class="container-fluid bg">
-  <p>transfer works!</p>
+<div class="row mt-5">
+  <div class="col-10">
+    <div class="card mb-3">
+      <div class="card-header d-flex flex-row p-4">
+        <img src="../../assets/dollar.svg" alt="dollar" />
+        <h4 class="text pl-4">
+          Informe os dados para realizar sua transferência
+        </h4>
+      </div>
+      <div class="card-body p-4">
+        <form>
+          <div class="form-group">
+            <input
+              class="input form-control"
+              id="contaDestino"
+              placeholder="Login do destinatário"
+            />
+          </div>
+          <div class="form-group">
+            <input class="input form-control" type="date" id="contaDestino" />
+          </div>
+
+          <div class="form-group">
+            <input
+              class="input form-control"
+              id="descricao"
+              placeholder="Descrição"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="number"
+              class="input form-control"
+              id="valor"
+              placeholder="Valor da transferência"
+            />
+          </div>
+
+          <button type="submit" class="transfer-button btn">
+            Transferir agora<app-arrow></app-arrow>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
