@@ -1,3 +1,52 @@
-<div class="container-fluid bg">
-  <p>deposit works!</p>
+<div class="row mt-5">
+  <div class="col-10">
+    <div class="card mb-3">
+      <div class="d-flex flex-row p-4">
+        <h4 class="text pl-4">
+          Realize seu depósito
+        </h4>
+      </div>
+      <div class="card-body p-4">
+        <form [formGroup]="">
+          <div class="form-group">
+            <input
+              class="input form-control"
+              type="date"
+              id="data"
+              formControlName="data"
+
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              class="input form-control"
+              id="descricao"
+              formControlName="descricao"
+              placeholder="Descrição"
+
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="input form-control"
+              type="number"
+              min="0"
+              id="valor"
+              formControlName="valor"
+              placeholder="Qual o valor de sua transferência?"
+
+            />
+          </div>
+
+
+          <button
+            type="button"
+            class="deposit-button btn">
+            Transferir<app-arrow></app-arrow>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
