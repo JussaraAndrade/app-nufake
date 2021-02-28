@@ -4,7 +4,23 @@
       <app-navbar></app-navbar>
     </div>
     <div class="flex-grow-1 content">
-      <router-outlet></router-outlet>
+      <div class="bg w-100">
+        <div class="pt-3 pl-5">
+          <div class="text-white pt-5 pl-5">
+            <div class="row text-white">
+              <div class="col-9">
+                <h4 class="texto">
+                  Ola <strong>Usuario</strong>, seja bem vindo!
+                </h4>
+              </div>
+              <div class="col-1">
+                <button>eye</button>
+              </div>
+            </div>
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
