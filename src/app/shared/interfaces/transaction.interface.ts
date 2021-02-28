@@ -7,3 +7,4 @@ export interface Transaction {
   planoConta: number;
   valor: number;
 }
+
