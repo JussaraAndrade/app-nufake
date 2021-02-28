@@ -1,4 +1,4 @@
-export interface Plan {
+export interface Plans {
   id: number;
   descricao: string;
   login: string;

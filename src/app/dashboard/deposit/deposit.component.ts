@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Plan } from 'src/app/shared/interfaces/plan.interface';
+import { Plans } from 'src/app/shared/interfaces/plans.interface';
 import { User } from 'src/app/shared/interfaces/user.interface';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { TransactionService } from 'src/app/shared/services/transaction/transaction.service';
@@ -20,7 +20,7 @@ export class DepositComponent implements OnInit {
   depositForm!: FormGroup;
   dashboardData: Dashboard;
   user: User;
-  plans: Plan[];
+  plans: Plans[];
   loading = false;
 
   constructor(
