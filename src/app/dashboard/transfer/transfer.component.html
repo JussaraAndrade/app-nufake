@@ -85,6 +85,7 @@
             type="button"
             class="transfer-button btn"
             (click)="onSubmit()"
+            [disabled]="loading"
           >
             Transferir agora<app-arrow></app-arrow>
           </button>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Plan } from 'src/app/shared/interfaces/plan.interface';
 import { User } from 'src/app/shared/interfaces/user.interface';
@@ -18,12 +20,15 @@ export class TransferComponent implements OnInit {
   dashboardData: Dashboard;
   user: User;
   plans: Plan[];
+  loading = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private dashboard: ContentService,
-    private transactionService: TransactionService
+    private transactionService: TransactionService,
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -75,6 +80,7 @@ export class TransferComponent implements OnInit {
   }
 
   transfer() {
+    this.loading = true;
     const transaction = {
       ...this.transferForm.value,
       login: this.user.login,
@@ -82,8 +88,21 @@ export class TransferComponent implements OnInit {
       conta: Number(this.transferForm.value.conta),
     };
 
-    this.transactionService
-      .transfer(transaction)
-      .subscribe((response) => console.log(response));
+    this.transactionService.transfer(transaction).subscribe(
+      (response) => this.onSuccess(),
+      (error) => this.onError(error)
+    );
+  }
+
+  onSuccess() {
+    this.loading = false;
+    this.toastr.success('Transferência realizada com sucesso', 'Tudo certo!');
+    this.router.navigate(['dashboard']);
+  }
+
+  onError(error) {
+    this.loading = false;
+    this.toastr.error(error.error.error, 'Erro no cadastro!');
+    console.log(error);
   }
 }
