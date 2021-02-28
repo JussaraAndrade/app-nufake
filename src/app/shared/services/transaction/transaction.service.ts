@@ -2,7 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Plan } from '../../interfaces/plan.interface';
+
+import { Plans } from '../../interfaces/plans.interface';
 import { Transaction } from '../../interfaces/transaction.interface';
 
 @Injectable({
@@ -20,8 +21,8 @@ export class TransactionService {
     );
   }
 
-  getPlanosConta(login: string): Observable<Plan[]> {
-    return this.http.get<Plan[]>(
+  getPlanosConta(login: string): Observable<Plans[]> {
+    return this.http.get<Plans[]>(
       `${this.API_URL}/lancamentos/planos-conta?login=${login}`
     );
   }
