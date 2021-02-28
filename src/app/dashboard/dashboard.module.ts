@@ -9,6 +9,7 @@ import { PaymentsComponent } from './payments/payments.component';
 import { PlansComponent } from './plans/plans.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,11 @@ import { SharedModule } from '../shared/shared.module';
     PlansComponent,
     TransferComponent,
   ],
-  imports: [CommonModule, DashboardRoutingModule, SharedModule],
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+  ],
 })
 export class DashboardModule {}
