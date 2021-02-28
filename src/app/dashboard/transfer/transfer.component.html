@@ -50,6 +50,22 @@
             />
           </div>
 
+          <div class="form-group">
+            <select
+              id="conta"
+              formControlName="conta"
+              class="form-control"
+              [class.is-invalid]="showError('conta')"
+            >
+              <option selected [value]="accountData?.contaBanco.id">
+                Conta banco
+              </option>
+              <option [value]="accountData?.contaCredito.id">
+                Conta crédito
+              </option>
+            </select>
+          </div>
+
           <button
             type="button"
             class="transfer-button btn"

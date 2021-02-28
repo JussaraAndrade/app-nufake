@@ -6,30 +6,26 @@ import { ContentService } from './content.service';
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
-  styleUrls: ['./content.component.scss']
+  styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent implements OnInit {
-
-  dashboard: Dashboard[];
+  dashboard: Dashboard;
   erroNoCarregamento: boolean;
 
-  constructor(
-    private contentService: ContentService,
-  ) { }
+  constructor(private contentService: ContentService) {}
 
-  ngOnInit(){
-    this.carregarDashboard()
-  };
+  ngOnInit() {
+    this.carregarDashboard();
+  }
 
   carregarDashboard() {
-    console.log('carregando.....')
-    this.contentService.getDashboard()
-    .subscribe(
-      response => this.onSuccess(response),
-      error => this.onError(error)
+    console.log('carregando.....');
+    this.contentService.getDashboard().subscribe(
+      (response) => this.onSuccess(response),
+      (error) => this.onError(error)
     );
   }
-  onSuccess(response: Dashboard[]) {
+  onSuccess(response: Dashboard) {
     this.dashboard = response;
   }
 
@@ -37,5 +33,4 @@ export class ContentComponent implements OnInit {
     this.erroNoCarregamento = true;
     console.error(error);
   }
-
 }
