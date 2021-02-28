@@ -10,10 +10,12 @@ import { PlansComponent } from './plans/plans.component';
 import { TransferComponent } from './transfer/transfer.component';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
+    ContentComponent,
     NavbarComponent,
     DepositComponent,
     PaymentsComponent,
