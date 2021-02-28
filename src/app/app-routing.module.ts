@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { PageErroComponent } from './error/error.component';
-import { IsAuthenticatedGuard } from './shared/guards/is-authenticated.guard';
+import { IsAuthenticatedGuard } from './shared/guards/logged/is-authenticated.guard';
+import { NotLoggedGuard } from './shared/guards/not-logged/not-logged.guard';
 
 const routes: Routes = [
   {
@@ -13,17 +14,19 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () =>
       import('./login/login.module').then((m) => m.LoginModule),
+      canActivate: [NotLoggedGuard],
   },
   {
     path: 'recovery',
     loadChildren: () =>
       import('./recovery/recovery.module').then((m) => m.RecoveryModule),
+      canActivate: [NotLoggedGuard],
   },
   {
     path: 'dashboard',
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
-    canActivate: [IsAuthenticatedGuard],
+      canActivate: [IsAuthenticatedGuard],
   },
   {
     path: 'error',

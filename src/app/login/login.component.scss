@@ -13,6 +13,7 @@
   font-weight: 600;
   text-align: left;
   padding: 0 30px;
+  cursor: pointer;
 
   display: flex;
   justify-content: space-between;
@@ -39,6 +40,7 @@
     font-weight: bold;
     font-size: 20px;
   }
+
   &__form {
     display: flex;
     align-items: center;
@@ -47,13 +49,12 @@
   }
 
   &__field {
-    margin: 20px 0;
+    margin: 20px;
     background: transparent;
     border: none;
     border-bottom: 1px solid $border;
     padding: 12px 5px;
     outline: none;
-    align-items: center;
     width: 345px;
 
     &::placeholder {
@@ -65,7 +66,18 @@
     &--invalid {
       border-color: $red;
       color: $red;
+
+      &::placeholder {
+        color: $red;
+      }
     }
+  }
+  &__invalid-feedback {
+    font-size: 11px;
+    font-weight: 300;
+    color:  $red;
+
+    align-items: center;
   }
 }
 
@@ -88,7 +100,7 @@
 }
 
 .container-login {
-  background-color: #8c52e5;
+  background-color: $purple;
   height: 100vh;
   width: 100vw;
 
@@ -104,7 +116,7 @@
   margin: 10px 0;
 
   &__text {
-    color: #8c52e5;
+    color: $purple;
     font-weight: 600;
     font-size: 13px;
     line-height: 30px;
@@ -113,6 +125,6 @@
   }
 
   a:hover {
-    color: #878686;
+    color: $border;
   }
 }
