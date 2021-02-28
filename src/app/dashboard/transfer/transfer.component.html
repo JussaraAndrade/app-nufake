@@ -51,17 +51,32 @@
           </div>
 
           <div class="form-group">
+            <label class="form-check-label" for="conta">Conta</label>
             <select
               id="conta"
               formControlName="conta"
               class="form-control"
               [class.is-invalid]="showError('conta')"
             >
-              <option selected [value]="accountData?.contaBanco.id">
+              <option selected [value]="dashboardData?.contaBanco.id">
                 Conta banco
               </option>
-              <option [value]="accountData?.contaCredito.id">
+              <option [value]="dashboardData?.contaCredito.id">
                 Conta crédito
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-check-label" for="planoConta">Plano</label>
+            <select
+              id="planoConta"
+              formControlName="planoConta"
+              class="form-control"
+              [class.is-invalid]="showError('planoConta')"
+            >
+              <option *ngFor="let plan of plans" [value]="plan.id">
+                {{ plan.descricao }}
               </option>
             </select>
           </div>
