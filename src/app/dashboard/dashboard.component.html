@@ -10,11 +10,11 @@
             <div class="row text-white">
               <div class="col-9">
                 <h4 class="texto">
-                  Ola <strong>Usuario</strong>, seja bem vindo!
+                  Olá <strong>{{user.nome}}</strong>, seja bem vindo!
                 </h4>
               </div>
               <div class="col-1">
-                <button>eye</button>
+                <button (click)="logout()" class="logout"></button>
               </div>
             </div>
             <router-outlet></router-outlet>
