@@ -15,29 +15,26 @@ import { ContentService } from '../content/content.service';
 })
 export class PlansComponent implements OnInit {
 
-  plans!: Plans[];
+  plans: Plans[];
   loading!: boolean;
   notLoading!: boolean;
   user: User;
-  accountData: Dashboard;
-
+  dashboardData: Dashboard;
 
   constructor(
     private plansService: PlansService,
     private authService: AuthService,
     private dashboard: ContentService,
+    
   ) { }
 
   ngOnInit() {
-    this.loadingPlans();
-
+ 
     this.user = this.authService.getUser();
-
-    this.dashboard
+    this.loadingPlans();
+      this.dashboard
       .getDashboard()
-      .subscribe((response) =>
-        (this.accountData = response)
-      );
+      .subscribe((response) => (this.dashboardData = response));
   }
 
 
@@ -45,14 +42,9 @@ export class PlansComponent implements OnInit {
   loadingPlans(){
     this.loading = true;
 
-    this.plansService.getaccountPlans()
-      .pipe(
-        take(1),
-        finalize(() => this.loading = false)
-      )
+    this.plansService.getAccountPlans(this.user.login)
       .subscribe(
-        response => this.onSuccessPlans(response),
-        error => this.onErrorPlans(error),
+        (response) => (console.log(response))
       );
   }
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-
+import { Observable } from 'rxjs';
 import { Plans } from '../../interfaces/plans.interface';
 
 @Injectable({
@@ -12,8 +12,10 @@ export class PlansService {
 
   constructor(private http: HttpClient) { }
 
-  getaccountPlans(){
-    return this.http.get<Plans[]>(this.API_URL + '/lancamentos/planos-conta');
+  getAccountPlans(login:string): Observable<Plans[]> {
+    return this.http.get<Plans[]>(
+      `${this.API_URL}/lancamentos/planos-conta?login=${login}`)
   }
+
 
 }
