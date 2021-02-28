@@ -11,11 +11,10 @@ import { ContentService } from '../content/content.service';
 @Component({
   selector: 'app-plans',
   templateUrl: './plans.component.html',
-  styleUrls: ['./plans.component.scss']
+  styleUrls: ['./plans.component.scss'],
 })
 export class PlansComponent implements OnInit {
-
-  plans: Plans[];
+  plans!: Plans[];
   loading!: boolean;
   notLoading!: boolean;
   user: User;
@@ -24,28 +23,29 @@ export class PlansComponent implements OnInit {
   constructor(
     private plansService: PlansService,
     private authService: AuthService,
-    private dashboard: ContentService,
-    
-  ) { }
+    private dashboard: ContentService
+  ) {}
 
   ngOnInit() {
- 
     this.user = this.authService.getUser();
-    this.loadingPlans();
-      this.dashboard
+    this.getPlans();
+    this.dashboard
       .getDashboard()
       .subscribe((response) => (this.dashboardData = response));
   }
 
-
-
-  loadingPlans(){
+  getPlans() {
     this.loading = true;
-
+    this.notLoading = false;
     this.plansService.getAccountPlans(this.user.login)
-      .subscribe(
-        (response) => (console.log(response))
-      );
+    .pipe(
+      take(1),
+      finalize(() => this.loading = false)
+    )
+    .subscribe(
+      (response) => this.onSuccessPlans(response),
+      (error) => this.onErrorPlans(error)
+    );
   }
 
   onSuccessPlans(response: Plans[]) {
@@ -56,5 +56,4 @@ export class PlansComponent implements OnInit {
     this.notLoading = true;
     console.error(error);
   }
-
 }

@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
 import { Plans } from '../../interfaces/plans.interface';
 
 @Injectable({
@@ -16,6 +17,4 @@ export class PlansService {
     return this.http.get<Plans[]>(
       `${this.API_URL}/lancamentos/planos-conta?login=${login}`)
   }
-
-
 }
