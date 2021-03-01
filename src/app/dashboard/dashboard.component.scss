@@ -22,9 +22,15 @@
 }
 
 .content {
-  margin-left: 150px;
+  margin-left: 250px;
   @media (max-width: 768px) {
     margin-left: 0;
+  }
+}
+
+.logout-wrapper {
+  @media (max-width: 768px) {
+    display: none;
   }
 }
 
