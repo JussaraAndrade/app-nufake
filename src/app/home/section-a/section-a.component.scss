@@ -140,10 +140,20 @@
     color: $softBlack;
   }
 
+  &__input-wrapper {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    position: relative;
+
+    margin-top: 12px;
+  }
+
   &__field {
     border-bottom: 1px solid $border;
-    height: 40px;
-    margin-top: 24px;
+    height: 100%;
+    width: 100%;
+    position: relative;
 
     &::placeholder {
       padding: 0 2px;
@@ -168,6 +178,9 @@
     font-style: italic;
     color: red;
     margin-top: 4px;
+    position: absolute;
+    bottom: -16px;
+    left: 0;
   }
 
   &__btn {
