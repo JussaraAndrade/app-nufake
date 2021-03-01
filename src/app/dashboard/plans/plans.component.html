@@ -1,22 +1,96 @@
-<div class="row mt-5">
-  <div class="col-10">
-
-    <div class="card mb-3" *ngIf="!loading && !notLoading">
-      <div class="card-body p-4">
-        <div class="row">
-          <div class="col-md-4 mt-3" *ngFor="let plan of plans">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{{ plan.descricao }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ plan.id }}</h6>
-                <p class="card-text">
-                  Movimentação tipo:{{ plan.tipoMovimento }}
-                </p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-10">
+      <div class="card mb-3" *ngIf="!loading && !notLoading">
+        <div class="card-body p-4">
+          <div class="row">
+            <div class="col-md-4 mt-3" *ngFor="let plan of plans">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{ plan.descricao }}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">{{ plan.id }}</h6>
+                  <p class="card-text">
+                    Tipo movimento:{{ plan.tipoMovimento }}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+
+      <div class="row">
+        <div class="col-10">
+          <div class="row" *ngIf="!loading && !notLoading">
+            <div class="col-md-5">
+              <div class="card mb-3" style="max-width: 18rem">
+                <div class="card-body" *ngIf="!loading">
+                  <p class="card-title">
+                    <img src="../../assets/dollar-sign-solid.svg" width="10" />
+                    Conta
+                  </p>
+                  {{ balance | currency: "BRL" }}
+                  <p class="card-text"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-5">
+              <div class="card mb-3" style="max-width: 18rem">
+                <div class="card-body">
+                  <p class="card-title">
+                    <img
+                      src="../../assets/credit-card-regular.svg"
+                      width="18"
+                    />
+                    Conta crédito
+                  </p>
+                  {{ availableLimit | currency: "BRL" }}
+                </div>
+              </div>
+            </div>
+
+            <div class="col-10">
+              <div class="card mb-4">
+                <div class="card-body p-4">
+                  <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div *ngIf="!loading">
+                      <div *ngFor="let plan of plans">
+                        <div class="row movement">
+                          <p class="text-disponivel font-weight-bold">
+                            Movimentações <img
+                            src="../../assets/credit-card-regular.svg"
+                            width="18"
+                          />
+                          </p>
+                          <p class="text">{{ plan.descricao }}</p>
+                          <p class="text-dark font-weight-bold">
+                            Tipo movimento {{ plan.tipoMovimento }}
+                          </p>
+                          <p class="text-dark font-weight-bold">
+                            {{ plan.id | currency: "BRL" }}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+      </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+

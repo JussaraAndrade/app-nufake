@@ -5,7 +5,7 @@ import { User } from 'src/app/shared/interfaces/user.interface';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { PlansService } from 'src/app/shared/services/plans/plans.service';
 
-import { Dashboard } from '../content/content.interface';
+import { Dashboard, Lancamento } from '../content/content.interface';
 import { ContentService } from '../content/content.service';
 
 @Component({
@@ -19,17 +19,22 @@ export class PlansComponent implements OnInit {
   notLoading!: boolean;
   user: User;
   dashboardData: Dashboard;
+  balance = 1000;
+  availableLimit = 2600;
+  lastTransactions: Lancamento[];
+  dashboard: Dashboard;
 
   constructor(
     private plansService: PlansService,
     private authService: AuthService,
-    private dashboard: ContentService
+    private contentService: ContentService
   ) {}
 
   ngOnInit() {
     this.user = this.authService.getUser();
     this.getPlans();
-    this.dashboard
+    this.getDash();
+    this.contentService
       .getDashboard()
       .subscribe((response) => (this.dashboardData = response));
   }
@@ -48,6 +53,35 @@ export class PlansComponent implements OnInit {
     );
   }
 
+  getDash(){
+    this.loading = true;
+    this.contentService.getDashboard().subscribe(
+      (response) => this.onSuccess(response),
+      (error) => this.onError(error)
+    )
+  }
+
+  onSuccess(response: Dashboard) {
+    this.dashboard = response;
+    this.balance =
+      this.dashboard.contaBanco.saldo + this.dashboard.contaCredito.saldo;
+    console.log(this.dashboard);
+
+    const transactionsLength = this.dashboard.contaCredito.lancamentos.length;
+
+    if (transactionsLength > 3) {
+      this.lastTransactions = this.dashboard.contaCredito.lancamentos.slice(
+        transactionsLength - 3,
+        transactionsLength
+      );
+    } else {
+      this.lastTransactions = this.dashboard.contaCredito.lancamentos;
+    }
+    console.log(this.lastTransactions);
+
+    this.loading = false;
+  }
+
   onSuccessPlans(response: Plans[]) {
     this.plans = response;
   }
@@ -55,5 +89,11 @@ export class PlansComponent implements OnInit {
   onErrorPlans(error: any) {
     this.notLoading = true;
     console.error(error);
+    this.loading = false;
+  }
+  onError(error: any) {
+    this.notLoading = true;
+    console.error(error);
+    this.loading = false;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Dashboard, Lancamento } from './content.interface';
 import { ContentService } from './content.service';
