@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { finalize, take } from 'rxjs/operators';
 import { Plans } from 'src/app/shared/interfaces/plans.interface';
 import { User } from 'src/app/shared/interfaces/user.interface';
@@ -31,10 +30,7 @@ export class PlansComponent implements OnInit {
     private plansService: PlansService,
     private authService: AuthService,
 
-    private contentService: ContentService,
-
-    private modalService: NgbModal,
-
+    private contentService: ContentService
   ) {}
 
   ngOnInit() {
@@ -61,12 +57,12 @@ export class PlansComponent implements OnInit {
       );
   }
 
-  getDash(){
+  getDash() {
     this.loading = true;
     this.contentService.getDashboard().subscribe(
       (response) => this.onSuccess(response),
       (error) => this.onError(error)
-    )
+    );
   }
 
   onSuccess(response: Dashboard) {
