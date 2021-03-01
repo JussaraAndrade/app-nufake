@@ -4,3 +4,10 @@
   background-color: #8c52e5;
   color: white;
 }
+
+.movement{
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid gray;
+  margin-bottom: 16px;
+}
