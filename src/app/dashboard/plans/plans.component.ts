@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { finalize, take } from 'rxjs/operators';
 import { Plans } from 'src/app/shared/interfaces/plans.interface';
 import { User } from 'src/app/shared/interfaces/user.interface';
@@ -12,18 +13,25 @@ import { ContentService } from '../content/content.service';
   selector: 'app-plans',
   templateUrl: './plans.component.html',
   styleUrls: ['./plans.component.scss'],
+
 })
 export class PlansComponent implements OnInit {
+
+  closeResult: string;
+
   plans!: Plans[];
   loading!: boolean;
   notLoading!: boolean;
   user: User;
   dashboardData: Dashboard;
 
+
+
   constructor(
     private plansService: PlansService,
     private authService: AuthService,
-    private dashboard: ContentService
+    private dashboard: ContentService,
+    private modalService: NgbModal
   ) {}
 
   ngOnInit() {
@@ -56,4 +64,23 @@ export class PlansComponent implements OnInit {
     this.notLoading = true;
     console.error(error);
   }
+
+  open(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
+
 }

@@ -2,6 +2,7 @@
 @import "~ngx-toastr/toastr";
 @import "bootstrap";
 @import "src/app/shared/variables";
+@import "~bootstrap/scss/bootstrap";
 
 * {
   margin: 0;
@@ -24,3 +25,6 @@ html {
 body {
   background: $purple;
 }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
