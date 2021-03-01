@@ -29,7 +29,6 @@ export class PlansComponent implements OnInit {
   constructor(
     private plansService: PlansService,
     private authService: AuthService,
-
     private contentService: ContentService
   ) {}
 
@@ -55,6 +54,10 @@ export class PlansComponent implements OnInit {
         (response) => this.onSuccessPlans(response),
         (error) => this.onErrorPlans(error)
       );
+  }
+
+  card(){
+
   }
 
   getDash() {

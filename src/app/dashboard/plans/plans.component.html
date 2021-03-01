@@ -10,7 +10,7 @@
                   <h5 class="card-title">{{ plan.descricao }}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">{{ plan.id }}</h6>
                   <p class="card-text">
-                    Tipo movimento:{{ plan.tipoMovimento }}
+                    Tipo movimento: {{ plan.tipoMovimento }}
                   </p>
                 </div>
               </div>
@@ -56,7 +56,7 @@
                   <div class="row">
                     <div class="col-1"></div>
                     <div *ngIf="!loading">
-                      <div *ngFor="let plan of plans">
+                      <div *ngFor="let plan of plans" >
                         <div class="row movement">
                           <p class="text-disponivel font-weight-bold">
                             Movimentações
@@ -66,9 +66,6 @@
                             />
                           </p>
                           <p class="text">{{ plan.descricao }}</p>
-                          <p class="text-dark font-weight-bold" *ngFor="plan.tipoMovimento === 'CONTA CREDITO'">
-                            Tipo movimento {{ plan.tipoMovimento }}
-                          </p>
                           <p class="text-dark font-weight-bold">
                             {{ plan.id | currency: "BRL" }}
                           </p>
