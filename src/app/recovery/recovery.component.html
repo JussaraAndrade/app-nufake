@@ -1,0 +1,86 @@
+<div class="container-login">
+  <img class="container-login__logo" [src]="LOGO_IMAGE_URL" />
+
+  <div class="container-card">
+    <div class="recovery-card" *ngIf="!temporaryPassword">
+      <p class="recovery-card__title">Esqueci minha senha</p>
+      <p class="recovery-card__subtitle">
+        Confirme seu email e nome de usuário
+      </p>
+
+      <form class="recovery-card__form" [formGroup]="forgotPasswordForm">
+        <input
+          type="email"
+          class="recovery-card__field"
+          placeholder="Email"
+          formControlName="email"
+          [class.recovery-card__field--invalid]="
+            showError('email', forgotPasswordForm)
+          "
+        />
+        <input
+          type="text"
+          class="recovery-card__field"
+          placeholder="Nome de usuario"
+          formControlName="login"
+          [class.recovery-card__field--invalid]="
+            showError('login', forgotPasswordForm)
+          "
+        />
+
+        <button
+          type="submit"
+          class="btn-login"
+          (click)="onForgotPasswordSubmit()"
+        >
+          Continuar <img class="btn-login__icon" [src]="VECTOR_ICON_URL" />
+        </button>
+      </form>
+    </div>
+
+    <div class="recovery-card" *ngIf="temporaryPassword">
+      <p class="recovery-card__title">Alterar senha</p>
+      <p class="recovery-card__subtitle">
+        Preencha os campos para alterar sua senha
+      </p>
+
+      <form class="recovery-card__form" [formGroup]="changePasswordForm">
+        <input
+          type="text"
+          class="recovery-card__field"
+          placeholder="Nome de usuário"
+          formControlName="usuario"
+          [class.recovery-card__field--invalid]="
+            showError('usuario', changePasswordForm)
+          "
+        />
+        <input
+          type="password"
+          class="recovery-card__field"
+          placeholder="Digite sua nova senha"
+          formControlName="senha"
+          [class.recovery-card__field--invalid]="
+            showError('senha', changePasswordForm)
+          "
+        />
+        <input
+          type="password"
+          class="recovery-card__field"
+          placeholder="Confirme sua nova senha"
+          formControlName="confirmarSenha"
+          [class.recovery-card__field--invalid]="
+            showError('confirmarSenha', changePasswordForm)
+          "
+        />
+
+        <button
+          type="submit"
+          class="btn-login"
+          (click)="onChangePasswordSubmit()"
+        >
+          Continuar <img class="btn-login__icon" [src]="VECTOR_ICON_URL" />
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

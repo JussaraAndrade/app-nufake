@@ -1,0 +1,98 @@
+<div class="row mt-5">
+  <div class="col-5">
+    <div class="card mb-3">
+      <div class="card-header d-flex flex-row p-4">
+        <img src="../../assets/dollar.svg" alt="dollar" />
+        <h4 class="text pl-4">Conta</h4>
+      </div>
+      <div class="card-body p-4">
+        <div *ngIf="!loading">
+          <p class="text">Saldo disponível</p>
+          <p class="text-disponivel font-weight-bold">
+            {{ balance | currency: "BRL" }}
+          </p>
+          <p class="text">
+            Transações<strong class="text-success">
+              {{ transactions | currency: "BRL" }}</strong
+            >
+          </p>
+          <br />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-5">
+    <div class="card mb-3">
+      <div class="card-header d-flex flex-row p-4">
+        <img class="img" src="../../assets/credit-card.svg" alt="credit-card" />
+        <h4 class="text pl-4">Cartão de Crédito</h4>
+      </div>
+      <div class="card-body p-4">
+        <div class="d-block justify-content-end">
+          <p class="text">Fatura atual</p>
+          <p class="text-primary font-weight-bold text-fatura">
+            {{ currentBill | currency: "BRL" }}
+          </p>
+        </div>
+        <p class="text">
+          Limite disponível<strong class="text-success font-weight-bold">
+            {{ availableLimit | currency: "BRL" }}</strong
+          >
+        </p>
+        <br />
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-5">
+  <div class="col-10">
+    <div class="card mb-4">
+      <div class="card-header d-flex flex-row p-4 justify-content-between">
+        <div class="d-flex flex-row align-items-center">
+          <img src="../../assets/dollar.svg" alt="dollar" />
+          <h4 class="text pl-4">Ultimos Lançamentos</h4>
+        </div>
+        <form
+          class="d-flex flex-row align-items-center"
+          [formGroup]="datesForm"
+        >
+          <input
+            class="input form-control"
+            type="date"
+            id="inicio"
+            formControlName="inicio"
+            (change)="onChange()"
+          />
+          <input
+            class="input form-control"
+            type="date"
+            id="fim"
+            formControlName="fim"
+            (change)="onChange()"
+          />
+        </form>
+      </div>
+      <div class="card-body p-4">
+        <div class="row">
+          <div class="col-1">
+            <img src="../../assets/credit-card2.svg" alt="credit-card2" />
+          </div>
+
+          <div *ngIf="!loading">
+            <div *ngFor="let transaction of lastTransactions">
+              <div class="row lancamento">
+                <p class="text-disponivel font-weight-bold">
+                  Compra no crédito
+                </p>
+                <p class="text">{{ transaction?.descricao }}</p>
+                <p class="text-dark font-weight-bold">
+                  {{ transaction.valor | currency: "BRL" }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

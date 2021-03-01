@@ -1,0 +1,44 @@
+<div class="container-login">
+  <img class="container-login__logo" [src]="LOGO_IMAGE_URL" />
+
+  <div class="container-card">
+    <div class="login-card">
+      <p class="login-card__title">Faça seu login</p>
+
+      <form class="login-card__form" [formGroup]="loginForm">
+        <input
+          type="text"
+          class="login-card__field"
+          placeholder="Digite o seu usuário"
+          formControlName="usuario"
+          [class.login-card__field--invalid]="showError('usuario')"
+          #userInput
+        />
+
+        <input
+          type="password"
+          class="login-card__field"
+          placeholder="Digite a sua senha"
+          formControlName="senha"
+          [class.login-card__field--invalid]="showError('senha')"
+          #passwordInput
+        />
+
+
+
+        <button class="btn-login" (click)="onSubmit()">
+          Continuar
+          <img class="btn-login__icon" [src]="VECTOR_ICON_URL" />
+        </button>
+
+      </form>
+
+      <div class="link">
+        <a href="#" class="link__text" routerLink="/recovery"
+          >Esqueci minha senha ></a
+        >
+        <a href="#" class="link__text" routerLink="">Ainda não sou cliente ></a>
+      </div>
+    </div>
+  </div>
+</div>

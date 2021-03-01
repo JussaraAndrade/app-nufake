@@ -1,0 +1,130 @@
+@import "/src/app/shared/variables";
+
+.btn-login {
+  width: 345px;
+  height: 42px;
+  background: $green;
+  border-radius: 20px;
+  border: none;
+
+  color: $white;
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 600;
+  text-align: left;
+  padding: 0 30px;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-card {
+  background: $card;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 455px;
+  height: 422px;
+
+  &__title {
+    height: 57px;
+    margin: 18px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  &__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__field {
+    margin: 20px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid $border;
+    padding: 12px 5px;
+    outline: none;
+    width: 345px;
+
+    &::placeholder {
+      color: $border;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 16px;
+    }
+    &--invalid {
+      border-color: $red;
+      color: $red;
+
+      &::placeholder {
+        color: $red;
+      }
+    }
+  }
+  &__invalid-feedback {
+    font-size: 11px;
+    font-weight: 300;
+    color:  $red;
+
+    align-items: center;
+  }
+}
+
+.container-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+
+  @media (max-width: 992px) {
+    max-width: 992px;
+    padding: 0 32px;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.container-login {
+  background-color: $purple;
+  height: 100vh;
+  width: 100vw;
+
+  &__logo {
+    margin: 52px 0px 0px 63px;
+  }
+}
+
+.link {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 10px 0;
+
+  &__text {
+    color: $purple;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 30px;
+    font-style: normal;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $border;
+  }
+}

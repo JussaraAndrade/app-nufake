@@ -1,0 +1,90 @@
+<section class="section-a">
+  <div class="header">
+    <img class="header__img" src="assets/svg/logo.svg" alt="Gama Academy" />
+  </div>
+  <div class="home-content">
+    <div class="intro-card">
+      <span class="intro-card__text"
+        >Gama Bank é um projeto de nossos alunos.</span
+      >
+      <br />
+      <span class="intro-card__text">Ja tem conta?</span>
+      <button class="intro-card__button" routerLink="/login">
+        Acessar <app-arrow></app-arrow>
+      </button>
+    </div>
+
+    <form class="register-card" [formGroup]="registerForm">
+      <h2 class="register-card__title">
+        Peça sua conta e cartão de crédito do Gama Bank
+      </h2>
+      <input
+        type="text"
+        class="register-card__field"
+        mask="000.000.000-00"
+        placeholder="Digite seu CPF"
+        formControlName="cpf"
+        [class.register-card__field--invalid]="showError('cpf')"
+      />
+      <div *ngIf="showError('cpf')" class="register-card__invalid-feedback">
+        CPF inválido.
+      </div>
+      <input
+        type="text"
+        class="register-card__field"
+        placeholder="Escolha um nome de usuário"
+        formControlName="login"
+        [class.register-card__field--invalid]="showError('login')"
+      />
+      <div *ngIf="showError('login')" class="register-card__invalid-feedback">
+        Nome de usuário inválido.
+      </div>
+      <input
+        type="text"
+        class="register-card__field"
+        placeholder="Nome completo"
+        formControlName="nome"
+        [class.register-card__field--invalid]="showError('nome')"
+      />
+      <div *ngIf="showError('nome')" class="register-card__invalid-feedback">
+        Nome é obrigatório.
+      </div>
+      <input
+        type="password"
+        class="register-card__field"
+        placeholder="Digite sua senha"
+        formControlName="senha"
+        [class.register-card__field--invalid]="showError('senha')"
+      />
+      <div *ngIf="showError('senha')" class="register-card__invalid-feedback">
+        A senha deve ter no mínimo 8 caracteres.
+      </div>
+      <input
+        type="password"
+        class="register-card__field"
+        placeholder="Confirme sua senha"
+        formControlName="confirmarSenha"
+        [class.register-card__field--invalid]="showError('confirmarSenha')"
+      />
+      <div
+        *ngIf="showError('confirmarSenha')"
+        class="register-card__invalid-feedback"
+      >
+        As senhas devem coincidir.
+      </div>
+
+      <button
+        class="register-card__btn"
+        (click)="onSubmit()"
+        [class.register-card__btn--valid]="registerForm.valid && !loading"
+      >
+        Continuar
+        <app-arrow
+          *ngIf="!loading"
+          [fill]="registerForm.valid ? arrowColor : arrowColorDisabled"
+        ></app-arrow
+        ><app-spinner *ngIf="loading"></app-spinner>
+      </button>
+    </form>
+  </div>
+</section>

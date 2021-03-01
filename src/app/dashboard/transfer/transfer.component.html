@@ -1,0 +1,96 @@
+<div class="row mt-5">
+  <div class="col-10">
+    <div class="card mb-3">
+      <div class="card-header d-flex flex-row p-4">
+        <img src="../../assets/dollar.svg" alt="dollar" />
+        <h4 class="text pl-4">
+          Informe os dados para realizar sua transferência
+        </h4>
+      </div>
+      <div class="card-body p-4">
+        <form [formGroup]="transferForm">
+          <div class="form-group">
+            <input
+              class="input form-control"
+              id="contaDestino"
+              formControlName="contaDestino"
+              placeholder="Login do destinatário"
+              formControlName="contaDestino"
+              [class.is-invalid]="showError('contaDestino')"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="input form-control"
+              type="date"
+              id="data"
+              formControlName="data"
+              [class.is-invalid]="showError('data')"
+            />
+          </div>
+
+          <div class="form-group">
+            <input
+              class="input form-control"
+              id="descricao"
+              formControlName="descricao"
+              placeholder="Descrição"
+              [class.is-invalid]="showError('descricao')"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              class="input form-control"
+              type="number"
+              min="0"
+              id="valor"
+              formControlName="valor"
+              placeholder="Valor da transferência"
+              [class.is-invalid]="showError('valor')"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-check-label" for="conta">Conta</label>
+            <select
+              id="conta"
+              formControlName="conta"
+              class="form-control"
+              [class.is-invalid]="showError('conta')"
+            >
+              <option selected [value]="dashboardData?.contaBanco.id">
+                Conta banco
+              </option>
+              <option [value]="dashboardData?.contaCredito.id">
+                Conta crédito
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-check-label" for="planoConta">Plano</label>
+            <select
+              id="planoConta"
+              formControlName="planoConta"
+              class="form-control"
+              [class.is-invalid]="showError('planoConta')"
+            >
+              <option *ngFor="let plan of plans" [value]="plan.id">
+                {{ plan.descricao }}
+              </option>
+            </select>
+          </div>
+
+          <button
+            type="button"
+            class="transfer-button btn"
+            (click)="onSubmit()"
+            [disabled]="loading"
+          >
+            Transferir agora<app-arrow></app-arrow>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
