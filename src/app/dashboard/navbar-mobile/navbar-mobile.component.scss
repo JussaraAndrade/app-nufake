@@ -1,0 +1,48 @@
+@import "/src/app/shared/variables";
+
+.navbar-mobile {
+  // position: fixed;
+  display: flex;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: $green;
+
+  a {
+    height: 100%;
+    img {
+      height: 100%;
+      margin-left: 15px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.hidden-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: $green;
+  z-index: 2;
+  overflow-y: scroll;
+  overflow: hidden;
+
+  ul {
+    width: 100%;
+    padding: 48px;
+    list-style: none;
+
+    li {
+      height: 75px;
+      color: $white;
+      font-size: 32px;
+      text-transform: uppercase;
+    }
+  }
+}

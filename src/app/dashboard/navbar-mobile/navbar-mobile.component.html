@@ -1,0 +1,56 @@
+<div class="navbar-mobile">
+  <a routerLink="/dashboard">
+    <img src="../../assets/logo.svg" alt="logo" />
+  </a>
+  <button (click)="toggleMenu()">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      color="#FFF"
+      height="50"
+      width="50"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"
+      />
+    </svg>
+  </button>
+</div>
+
+<div [hidden]="!showMenu" class="hidden-menu">
+  <div class="navbar-mobile">
+    <a routerLink="/dashboard">
+      <img src="../../assets/logo.svg" alt="logo" />
+    </a>
+    <button (click)="toggleMenu()">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        color="#FFF"
+        height="50"
+        width="50"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        />
+      </svg>
+    </button>
+  </div>
+  <ul>
+    <li (click)="navigate('deposit')">Depósitos</li>
+    <li (click)="navigate('plans')">Planos</li>
+    <li (click)="navigate('newplan')">Criar plano</li>
+    <li (click)="navigate('transfer')">Transferências</li>
+    <li (click)="logout()">Sair</li>
+  </ul>
+</div>

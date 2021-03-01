@@ -22,10 +22,19 @@
 }
 
 .content {
-  margin-left: 150px;
+  margin-left: 250px;
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 }
 
-.logout{
+.logout-wrapper {
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.logout {
   border-radius: 50%;
   background-color: #0b5ed7;
   border: none;
@@ -37,4 +46,3 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-
