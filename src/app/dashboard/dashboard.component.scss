@@ -23,9 +23,12 @@
 
 .content {
   margin-left: 150px;
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 }
 
-.logout{
+.logout {
   border-radius: 50%;
   background-color: #0b5ed7;
   border: none;
@@ -37,4 +40,3 @@
   margin: 4px 2px;
   cursor: pointer;
 }
-
