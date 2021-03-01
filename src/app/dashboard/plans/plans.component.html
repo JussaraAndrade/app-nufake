@@ -29,8 +29,10 @@
                     <img src="../../assets/dollar-sign-solid.svg" width="10" />
                     Conta
                   </p>
-                  {{ balance | currency: "BRL" }}
-                  <p class="card-text"></p>
+
+                    <p>
+                      <strong> {{ balance | currency: "BRL" }}</strong>
+                    </p>
                 </div>
               </div>
             </div>
@@ -45,7 +47,9 @@
                     />
                     Conta crédito
                   </p>
-                  {{ availableLimit | currency: "BRL" }}
+                  <p class="text-success font-weight-bold">
+                    <strong>{{ availableLimit | currency: "BRL" }}</strong>
+                    </p>
                 </div>
               </div>
             </div>
