@@ -13,10 +13,8 @@ import { ContentService } from '../content/content.service';
   selector: 'app-plans',
   templateUrl: './plans.component.html',
   styleUrls: ['./plans.component.scss'],
-
 })
 export class PlansComponent implements OnInit {
-
   closeResult: string;
 
   plans!: Plans[];
@@ -24,8 +22,6 @@ export class PlansComponent implements OnInit {
   notLoading!: boolean;
   user: User;
   dashboardData: Dashboard;
-
-
 
   constructor(
     private plansService: PlansService,
@@ -45,15 +41,16 @@ export class PlansComponent implements OnInit {
   getPlans() {
     this.loading = true;
     this.notLoading = false;
-    this.plansService.getAccountPlans(this.user.login)
-    .pipe(
-      take(1),
-      finalize(() => this.loading = false)
-    )
-    .subscribe(
-      (response) => this.onSuccessPlans(response),
-      (error) => this.onErrorPlans(error)
-    );
+    this.plansService
+      .getAccountPlans(this.user.login)
+      .pipe(
+        take(1),
+        finalize(() => (this.loading = false))
+      )
+      .subscribe(
+        (response) => this.onSuccessPlans(response),
+        (error) => this.onErrorPlans(error)
+      );
   }
 
   onSuccessPlans(response: Plans[]) {
@@ -64,23 +61,4 @@ export class PlansComponent implements OnInit {
     this.notLoading = true;
     console.error(error);
   }
-
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
-
 }
