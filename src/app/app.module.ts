@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageErroComponent } from './error/error.component';
 import { AuthInterceptor } from './shared/interceptors/auth.interceptor';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 registerLocaleData(localePt, 'pt');
 @NgModule({
@@ -22,7 +21,6 @@ registerLocaleData(localePt, 'pt');
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgbModule,
   ],
   providers: [
     {

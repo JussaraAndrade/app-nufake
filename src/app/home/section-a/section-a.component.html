@@ -18,59 +18,70 @@
       <h2 class="register-card__title">
         Peça sua conta e cartão de crédito do Gama Bank
       </h2>
-      <input
-        type="text"
-        class="register-card__field"
-        mask="000.000.000-00"
-        placeholder="Digite seu CPF"
-        formControlName="cpf"
-        [class.register-card__field--invalid]="showError('cpf')"
-      />
-      <div *ngIf="showError('cpf')" class="register-card__invalid-feedback">
-        CPF inválido.
+      <div class="register-card__input-wrapper">
+        <input
+          type="text"
+          class="register-card__field"
+          mask="000.000.000-00"
+          placeholder="Digite seu CPF"
+          formControlName="cpf"
+          [class.register-card__field--invalid]="showError('cpf')"
+        />
+        <div *ngIf="showError('cpf')" class="register-card__invalid-feedback">
+          CPF inválido.
+        </div>
       </div>
-      <input
-        type="text"
-        class="register-card__field"
-        placeholder="Escolha um nome de usuário"
-        formControlName="login"
-        [class.register-card__field--invalid]="showError('login')"
-      />
-      <div *ngIf="showError('login')" class="register-card__invalid-feedback">
-        Nome de usuário inválido.
+
+      <div class="register-card__input-wrapper">
+        <input
+          type="text"
+          class="register-card__field"
+          placeholder="Escolha um nome de usuário"
+          formControlName="login"
+          [class.register-card__field--invalid]="showError('login')"
+        />
+        <div *ngIf="showError('login')" class="register-card__invalid-feedback">
+          Nome de usuário inválido.
+        </div>
       </div>
-      <input
-        type="text"
-        class="register-card__field"
-        placeholder="Nome completo"
-        formControlName="nome"
-        [class.register-card__field--invalid]="showError('nome')"
-      />
-      <div *ngIf="showError('nome')" class="register-card__invalid-feedback">
-        Nome é obrigatório.
+      <div class="register-card__input-wrapper">
+        <input
+          type="text"
+          class="register-card__field"
+          placeholder="Nome completo"
+          formControlName="nome"
+          [class.register-card__field--invalid]="showError('nome')"
+        />
+        <div *ngIf="showError('nome')" class="register-card__invalid-feedback">
+          Nome é obrigatório.
+        </div>
       </div>
-      <input
-        type="password"
-        class="register-card__field"
-        placeholder="Digite sua senha"
-        formControlName="senha"
-        [class.register-card__field--invalid]="showError('senha')"
-      />
-      <div *ngIf="showError('senha')" class="register-card__invalid-feedback">
-        A senha deve ter no mínimo 8 caracteres.
+      <div class="register-card__input-wrapper">
+        <input
+          type="password"
+          class="register-card__field"
+          placeholder="Digite sua senha"
+          formControlName="senha"
+          [class.register-card__field--invalid]="showError('senha')"
+        />
+        <div *ngIf="showError('senha')" class="register-card__invalid-feedback">
+          A senha deve ter no mínimo 8 caracteres.
+        </div>
       </div>
-      <input
-        type="password"
-        class="register-card__field"
-        placeholder="Confirme sua senha"
-        formControlName="confirmarSenha"
-        [class.register-card__field--invalid]="showError('confirmarSenha')"
-      />
-      <div
-        *ngIf="showError('confirmarSenha')"
-        class="register-card__invalid-feedback"
-      >
-        As senhas devem coincidir.
+      <div class="register-card__input-wrapper">
+        <input
+          type="password"
+          class="register-card__field"
+          placeholder="Confirme sua senha"
+          formControlName="confirmarSenha"
+          [class.register-card__field--invalid]="showError('confirmarSenha')"
+        />
+        <div
+          *ngIf="showError('confirmarSenha')"
+          class="register-card__invalid-feedback"
+        >
+          As senhas devem coincidir.
+        </div>
       </div>
 
       <button
