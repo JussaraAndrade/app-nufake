@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { finalize, take } from 'rxjs/operators';
 import { Plans } from 'src/app/shared/interfaces/plans.interface';
 import { User } from 'src/app/shared/interfaces/user.interface';
@@ -32,9 +31,6 @@ export class PlansComponent implements OnInit {
     private authService: AuthService,
 
     private contentService: ContentService
-
-    private modalService: NgbModal
-
   ) {}
 
   ngOnInit() {
@@ -61,12 +57,12 @@ export class PlansComponent implements OnInit {
       );
   }
 
-  getDash(){
+  getDash() {
     this.loading = true;
     this.contentService.getDashboard().subscribe(
       (response) => this.onSuccess(response),
       (error) => this.onError(error)
-    )
+    );
   }
 
   onSuccess(response: Dashboard) {
