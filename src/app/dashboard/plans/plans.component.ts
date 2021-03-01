@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { finalize, take } from 'rxjs/operators';
 import { Plans } from 'src/app/shared/interfaces/plans.interface';
 import { User } from 'src/app/shared/interfaces/user.interface';
@@ -31,9 +31,9 @@ export class PlansComponent implements OnInit {
     private plansService: PlansService,
     private authService: AuthService,
 
-    private contentService: ContentService
+    private contentService: ContentService,
 
-    private modalService: NgbModal
+    private modalService: NgbModal,
 
   ) {}
 

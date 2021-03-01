@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row mt-5">
     <div class="col-10">
@@ -14,21 +13,6 @@
                     Tipo movimento:{{ plan.tipoMovimento }}
                   </p>
                 </div>
-
-<div class="row mt-5">
-  <div class="col-10">
-    <div class="card mb-3" *ngIf="!loading && !notLoading">
-      <div class="card-body p-4">
-        <div class="row">
-          <div class="col-md-4 mt-3" *ngFor="let plan of plans">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">{{ plan.descricao }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ plan.id }}</h6>
-                <p class="card-text">
-                  Movimentação tipo:{{ plan.tipoMovimento }}
-                </p>
-
               </div>
             </div>
           </div>
@@ -70,19 +54,19 @@
               <div class="card mb-4">
                 <div class="card-body p-4">
                   <div class="row">
-                    <div class="col-1">
-                    </div>
+                    <div class="col-1"></div>
                     <div *ngIf="!loading">
                       <div *ngFor="let plan of plans">
                         <div class="row movement">
                           <p class="text-disponivel font-weight-bold">
-                            Movimentações <img
-                            src="../../assets/credit-card-regular.svg"
-                            width="18"
-                          />
+                            Movimentações
+                            <img
+                              src="../../assets/credit-card-regular.svg"
+                              width="18"
+                            />
                           </p>
                           <p class="text">{{ plan.descricao }}</p>
-                          <p class="text-dark font-weight-bold">
+                          <p class="text-dark font-weight-bold" *ngFor="plan.tipoMovimento === 'CONTA CREDITO'">
                             Tipo movimento {{ plan.tipoMovimento }}
                           </p>
                           <p class="text-dark font-weight-bold">
@@ -95,22 +79,9 @@
                 </div>
               </div>
             </div>
-
-
-
-
           </div>
         </div>
       </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
     </div>
   </div>
 </div>
-
-<hr />
