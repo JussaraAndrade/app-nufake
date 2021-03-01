@@ -1,10 +1,10 @@
-# web-nufake Angular
+# web-nufake 
 
-Gama Academy - Accenture 2.0
+Gama Academy - Accenture 2.0 (Angular)
 
-## Deploy Firebase
+## Deploy Netlify
 
-https://nufake-avengers.firebaseapp.com/
+https://nufake-avengers.netlify.app/
 
 ## Miro
 https://miro.com/app/board/o9J_lSQzg4g=/
