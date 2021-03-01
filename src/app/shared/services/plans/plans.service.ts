@@ -6,15 +6,23 @@ import { environment } from 'src/environments/environment';
 import { Plans } from '../../interfaces/plans.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlansService {
   API_URL = environment.API_URL;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getAccountPlans(login:string): Observable<Plans[]> {
+  getAccountPlans(login: string): Observable<Plans[]> {
     return this.http.get<Plans[]>(
-      `${this.API_URL}/lancamentos/planos-conta?login=${login}`)
+      `${this.API_URL}/lancamentos/planos-conta?login=${login}`
+    );
+  }
+
+  createPlan(plan: Plans): Observable<Plans> {
+    return this.http.post<Plans>(
+      `${this.API_URL}/lancamentos/planos-conta`,
+      plan
+    );
   }
 }

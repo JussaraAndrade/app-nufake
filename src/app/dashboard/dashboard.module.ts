@@ -12,6 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { PlansComponent } from './plans/plans.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { NewPlanComponent } from './new-plan/new-plan.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TransferComponent } from './transfer/transfer.component';
     PaymentsComponent,
     PlansComponent,
     TransferComponent,
+    NewPlanComponent,
   ],
   imports: [
     CommonModule,
