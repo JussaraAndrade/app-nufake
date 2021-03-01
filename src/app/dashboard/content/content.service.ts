@@ -26,4 +26,13 @@ export class ContentService {
         `/dashboard?fim=${fim}&inicio=${formatDate(inicio)}&login=${user}`
     );
   }
+
+  getDashboardWithDate(inicio: string, fim: string): Observable<Dashboard> {
+    const user = this.authService.getUser().login;
+
+    return this.http.get<Dashboard>(
+      this.API_URL +
+        `/dashboard?fim=${fim}&inicio=${formatDate(inicio)}&login=${user}`
+    );
+  }
 }
