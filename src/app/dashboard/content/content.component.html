@@ -47,15 +47,37 @@
 <div class="row mt-5">
   <div class="col-10">
     <div class="card mb-4">
-      <div class="card-header d-flex flex-row p-4">
-        <img src="../../assets/dollar.svg" alt="dollar" />
-        <h4 class="text pl-4">Ultimos Lançamentos</h4>
+      <div class="card-header d-flex flex-row p-4 justify-content-between">
+        <div class="d-flex flex-row align-items-center">
+          <img src="../../assets/dollar.svg" alt="dollar" />
+          <h4 class="text pl-4">Ultimos Lançamentos</h4>
+        </div>
+        <form
+          class="d-flex flex-row align-items-center"
+          [formGroup]="datesForm"
+        >
+          <input
+            class="input form-control"
+            type="date"
+            id="inicio"
+            formControlName="inicio"
+            (change)="onChange()"
+          />
+          <input
+            class="input form-control"
+            type="date"
+            id="fim"
+            formControlName="fim"
+            (change)="onChange()"
+          />
+        </form>
       </div>
       <div class="card-body p-4">
         <div class="row">
           <div class="col-1">
             <img src="../../assets/credit-card2.svg" alt="credit-card2" />
           </div>
+
           <div *ngIf="!loading">
             <div *ngFor="let transaction of lastTransactions">
               <div class="row lancamento">

@@ -1,0 +1,41 @@
+<div class="row mt-5">
+  <div class="col-10">
+    <div class="card mb-3">
+      <div class="d-flex flex-row p-4">
+        <h4 class="text pl-4">Realize seu depósito</h4>
+      </div>
+      <div class="card-body p-4">
+        <form [formGroup]="planForm">
+          <div class="form-group">
+            <input
+              class="input form-control"
+              id="descricao"
+              formControlName="descricao"
+              placeholder="Descrição"
+              [class.is-invalid]="showError('descricao')"
+            />
+          </div>
+
+          <div class="form-group">
+            <label class="form-check-label" for="tipoMovimento">Tipo</label>
+            <select
+              id="tipoMovimento"
+              formControlName="tipoMovimento"
+              class="form-control"
+              [class.is-invalid]="showError('tipoMovimento')"
+            >
+              <option selected value="R">R</option>
+              <option value="D">D</option>
+              <option value="TC">TC</option>
+              <option value="TU">TU</option>
+            </select>
+          </div>
+
+          <button type="button" class="deposit-button btn" (click)="onSubmit()">
+            Depositar agora<app-arrow></app-arrow>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

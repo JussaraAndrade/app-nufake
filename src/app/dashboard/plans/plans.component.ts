@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { finalize, take } from 'rxjs/operators';
 import { Plans } from 'src/app/shared/interfaces/plans.interface';
 import { User } from 'src/app/shared/interfaces/user.interface';
@@ -14,6 +15,8 @@ import { ContentService } from '../content/content.service';
   styleUrls: ['./plans.component.scss'],
 })
 export class PlansComponent implements OnInit {
+  closeResult: string;
+
   plans!: Plans[];
   loading!: boolean;
   notLoading!: boolean;
@@ -27,7 +30,11 @@ export class PlansComponent implements OnInit {
   constructor(
     private plansService: PlansService,
     private authService: AuthService,
+
     private contentService: ContentService
+
+    private modalService: NgbModal
+
   ) {}
 
   ngOnInit() {
@@ -42,15 +49,16 @@ export class PlansComponent implements OnInit {
   getPlans() {
     this.loading = true;
     this.notLoading = false;
-    this.plansService.getAccountPlans(this.user.login)
-    .pipe(
-      take(1),
-      finalize(() => this.loading = false)
-    )
-    .subscribe(
-      (response) => this.onSuccessPlans(response),
-      (error) => this.onErrorPlans(error)
-    );
+    this.plansService
+      .getAccountPlans(this.user.login)
+      .pipe(
+        take(1),
+        finalize(() => (this.loading = false))
+      )
+      .subscribe(
+        (response) => this.onSuccessPlans(response),
+        (error) => this.onErrorPlans(error)
+      );
   }
 
   getDash(){

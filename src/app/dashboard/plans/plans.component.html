@@ -1,3 +1,4 @@
+
 <div class="container">
   <div class="row mt-5">
     <div class="col-10">
@@ -13,6 +14,21 @@
                     Tipo movimento:{{ plan.tipoMovimento }}
                   </p>
                 </div>
+
+<div class="row mt-5">
+  <div class="col-10">
+    <div class="card mb-3" *ngIf="!loading && !notLoading">
+      <div class="card-body p-4">
+        <div class="row">
+          <div class="col-md-4 mt-3" *ngFor="let plan of plans">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">{{ plan.descricao }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ plan.id }}</h6>
+                <p class="card-text">
+                  Movimentação tipo:{{ plan.tipoMovimento }}
+                </p>
+
               </div>
             </div>
           </div>
@@ -93,4 +109,8 @@
 
 
 
+    </div>
+  </div>
+</div>
 
+<hr />

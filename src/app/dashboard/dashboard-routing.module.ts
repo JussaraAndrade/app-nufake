@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard.component';
 import { DepositComponent } from './deposit/deposit.component';
+import { NewPlanComponent } from './new-plan/new-plan.component';
 import { PaymentsComponent } from './payments/payments.component';
 import { PlansComponent } from './plans/plans.component';
 import { TransferComponent } from './transfer/transfer.component';
@@ -28,6 +29,10 @@ const routes: Routes = [
       {
         path: 'plans',
         component: PlansComponent,
+      },
+      {
+        path: 'newplan',
+        component: NewPlanComponent,
       },
       {
         path: 'transfer',
