@@ -49,7 +49,7 @@ BEM |
 Rxjs | ![npm@latest](https://img.shields.io/badge/npm@latest-v6.6.0-blue)
 Bootstrap |  ![npm@latest](https://img.shields.io/badge/npm@latest-v4.6.0-blue)
 
-## Equipe
+## Contribuidores
 
 <table>
   <tr>
