@@ -2,8 +2,6 @@
 # Nufake Bank
 > NuFake Bank é uma aplicação desenvolvida em grupo do projeto final do treinamento da Accenture 2.0 em parceira com a Gama Academy, o projeto é um site que consome api no cenário bancário.
 
-#Parte reservada para imagem ou vídeo
-
 
 ## Mindmap 
 >https://miro.com/app/board/o9J_lSQzg4g=/
@@ -38,8 +36,6 @@ Typescript | ![npm@latest](https://img.shields.io/badge/npm@latest-v4.2.0-blue)
 ## Divisão de tarefas
 
 * Trello
-
-#Parte reservada imagem
 
 ## Ferramentas
 
